@@ -3672,4 +3672,16 @@ a {
 .text-white {
   color: #fff; }
 
+.logo {
+  text-indent: 101%;
+  white-space: nowrap;
+  overflow: hidden;
+  display: block;
+  background-image: url("https://github.com/vvvvvvii/TandD_selection/blob/gh-pages/assets/images/logo.png?raw=true");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 15rem;
+  height: 4rem; }
+
 /*# sourceMappingURL=all.css.map */

@@ -1,0 +1,40 @@
+.container{
+    @include container($grid-gutter-width, 100%);
+}
+.row{
+    @include row;
+}
+@if ($grid-columns >0){
+    @for $i from 1 through $grid-columns{
+        .col-#{$i}{
+            @include col-default;
+            @include col($i);
+        }
+    }
+}
+
+// rwd
+@each $breakpoint-name, $breakpoint in $grid-breakpoints{
+    .container{
+        @each $width-name, $max-width in $container-max-widths{
+            @if ($breakpoint-name == $width-name){
+                @include rwd($breakpoint){
+                    @include container($grid-gutter-width, $max-width);
+                }
+            }
+        }
+    }
+    @include rwd($breakpoint){
+        .row-#{$breakpoint-name}{
+            @include row;
+        }
+        @if ($grid-columns >0){
+            @for $i from 1 through $grid-columns{
+                .col-#{$breakpoint-name}-#{$i}{
+                    @include col-default;
+                    @include col($i);
+                }
+            }
+        }
+    }
+}

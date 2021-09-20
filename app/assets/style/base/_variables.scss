@@ -1,0 +1,153 @@
+// colors
+$primary: #000;
+$secondary: #d33434;
+$secondary-light: #fa6e6e;
+$light:  #fefeff;
+$gray: #666666;
+$gray-light: #e8e8e8;
+$gray-dark: #342d36;
+$white: #fff;
+
+$colors: () !default;
+$colors: map-merge(
+    (
+        "primary": $primary,
+        "secondary": $secondary,
+        "secondary-light": $secondary-light,
+        "light": $light,
+        "gray": $gray,
+        "gray-light": $gray-light,
+        "gray-dark": $gray-dark,
+        "white": $white,
+    ),
+    $colors
+);
+
+
+// spacer
+$spacer: 1rem !default;
+$spacers: () !default;
+$spacers: map-merge(
+    (
+        auto: auto,
+        0: 0,
+        1: ($spacer * .5), // 8px,
+        2: ($spacer * .75), // 12px,
+        3: ($spacer * 1), // 16px,
+        4: ($spacer * 1.25), // 20px,
+        5: ($spacer * 1.5), // 24px,
+        6: ($spacer * 1.875), // 30px,
+        7: ($spacer * 2), // 32px,
+        8: ($spacer * 2.5), // 40px,
+        9: ($spacer * 3), // 48px,
+        10: ($spacer * 3.75), // 60px,
+        11: ($spacer * 4), // 64px,
+        12: ($spacer * 5), // 80px,
+        13: ($spacer * 6.25), // 100px,
+    ),
+    $spacers
+);
+$percents: (
+    auto: auto,
+    0: 0%,
+    25: 25%,
+    50: 50%,
+    75: 75%,
+    100: 100%,
+) !default;
+
+// grid & rwd
+$rwd-sm: 576px;
+$rwd-md: 768px;
+$rwd-lg: 992px;
+$rwd-xl: 1200px;
+
+$grid-breakpoints: (
+    sm: $rwd-sm,
+    md: $rwd-md,
+    lg: $rwd-lg,
+    xl: $rwd-xl,
+) !default;
+
+$grid-columns: 12 !default;
+$grid-gutter-width: 30px !default;
+
+$container-max-widths: (
+    sm: 540px,
+    md: 720px,
+    lg: 960px,
+    xl: 1140px,
+) !default;
+
+// font-size
+$font-base-size: 1rem !default;
+$font-sizes: () !default;
+$font-sizes: map-merge(
+    (
+        1: ($font-base-size * .875), // 14px,
+        2: ($font-base-size), // 16px,
+        3: ($font-base-size * 1.25), // 20px,
+        4: ($font-base-size * 1.5), // 24px,
+        5: ($font-base-size * 1.75), // 28px,
+        6: ($font-base-size * 2), // 32px,
+        7: ($font-base-size * 2.25), // 36px,
+        8: ($font-base-size * 3), // 48px,
+        9: ($font-base-size * 4), // 64px,
+    ),
+    $font-sizes
+);
+
+
+// display
+$display-types: (
+    none: none,
+    block: block,
+    inline: inline,
+    inline-block: inline-block,
+    flex: flex,
+) !default;
+
+// position
+$position-types: (
+    relative: relative,
+    absolute: absolute,
+    sticky: sticky,
+    fixed: fixed,
+) !default;
+
+// flex
+$flex-types: (
+    row: row,
+    row-reverse: row-reverse,
+    column: column,
+    column-reverse: column-reverse,
+) !default;
+
+$justify-content-types: (
+    start: flex-start,
+    end: flex-end,
+    center: center,
+    between: space-between,
+) !default;
+
+$align-items-types: (
+    start: flex-start,
+    end: flex-end,
+    center: center,
+    baseline: baseline,
+) !default;
+
+// directions
+$directions-types: (
+    t: top,
+    b: bottom,
+    l: left,
+    r: right,
+) !default;
+
+// text-direction
+$text-directions-types: (
+    left: left,
+    right: right,
+    center: center,
+) !default;

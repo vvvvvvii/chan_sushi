@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200&family=Noto+Serif+TC:wght@200&display=swap');
+
+@import 'base/variables';
+@import 'base/function';
+@import 'base/mixin/mixin';
+@import 'base/reboot';
+
+@import 'components/button';
+@import 'components/card';
+@import 'components/form';
+@import 'components/list';
+@import 'components/navbar';
+@import 'components/section';
+
+@import 'utils/grids';
+@import 'utils/layout';
+@import 'utils/border';
+@import 'utils/text';
+
+@import 'pages/layout';
+@import 'pages/index';
+@import 'pages/about';
+@import 'pages/recruiting';

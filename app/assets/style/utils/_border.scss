@@ -1,0 +1,41 @@
+// border
+.border{
+    border-width: 1px;
+    border-style: solid;
+}
+.border-0{
+    border: none;
+}
+
+@each $direction-name, $direction in $directions-types{
+    .border-#{$direction}{
+        border-#{$direction}-width: 1px;
+        border-style: solid;
+    }
+}
+@each $breakpoint-name, $breakpoint in $grid-breakpoints{  
+    @include rwd($breakpoint){
+        .border-#{$breakpoint-name}{
+            border-width: 1px;
+            border-style: solid;
+        }
+        @each $direction-name, $direction in $directions-types{
+            .border-#{$breakpoint-name}-#{$direction}{
+                border-#{$direction}-width: 1px;
+                border-style: solid;
+            }
+        }
+    }
+}
+
+// border color
+@each $name, $color in $colors{
+    .border-#{$name}{
+        border-color: $color;
+    }
+}
+
+// border-radius
+.border-circle{
+    border-radius: 50%;
+}

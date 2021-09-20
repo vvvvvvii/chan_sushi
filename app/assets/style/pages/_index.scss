@@ -1,0 +1,71 @@
+.banner{
+    background: #081010;
+    background-image: url('https://images.unsplash.com/photo-1615361200141-f45040f367be?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');
+    background-repeat: no-repeat;
+    background-size: 50%;
+    background-position: 100% 50%;
+    width: 100%;
+    height: 250px;
+    @include rwd($rwd-md){
+        height: 350px;
+    }
+    @include rwd($rwd-lg){
+        height: 400px;
+    }
+}
+.index-menu{
+    &-img{
+        width: 800px;
+        height: 300px;
+        object-fit: cover;
+        opacity: 0.7;
+        transition: opacity 0.75s, width 1s ease-in-out;
+        @include rwd($rwd-lg){
+            height: 400px;
+        }
+        &:hover, &:active, &:focus{
+            width: 1200px;
+            opacity: 1;
+        }
+    }
+    &-title{
+        position: absolute;
+        bottom: 5%;
+        left: 10%;
+        color: $white;
+        font-size: 1rem;
+        font-weight: bold;
+        text-shadow: 0 3px 5px $gray-dark;
+        @include rwd($rwd-md){
+            font-size: 1.5rem;
+        }
+    }
+}
+.index-takeout{
+    &-img{
+        width: 100%;
+        height: 280px;
+        object-fit: cover;
+        @include rwd($rwd-lg){
+            height: 300px;
+        } 
+    }
+    &-text{
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 280px;
+        opacity: 0;
+        font-size: 2rem;
+        color: $secondary-light;
+        transition: opacity 0.8s;
+        @include rwd($rwd-lg){
+            height: 300px;
+        }
+        &:hover, &:active, &:focus{
+            background: darken($secondary, 10%);
+            opacity: 1;
+        }
+    }
+}

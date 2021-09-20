@@ -1,0 +1,16 @@
+.logo{
+    @include hide-text;
+    background-image: url('https://github.com/vvvvvvii/chan_sushi/blob/gh-pages/assets/images/logo.png?raw=true');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    width: 5rem;
+    height: 5rem;
+    @include rwd($rwd-md){
+        height: 4rem;
+    }
+    @include rwd($rwd-lg){
+        width: 8rem;
+        height: 5rem;
+    }
+}

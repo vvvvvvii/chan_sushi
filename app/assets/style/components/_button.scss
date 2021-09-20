@@ -1,0 +1,38 @@
+.btn{
+    display: inline-block;
+    padding: .5rem 1rem;
+    text-align: center;
+    font-weight: bold;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    &:hover{
+        cursor: pointer;
+    }
+    &-lg{
+        padding: .75rem 1.25rem;
+    }
+}
+
+// button color
+@each $name, $color in $colors{
+    .btn-#{$name}{
+        color: contrast-color($color, $gray-dark, $light);
+        background-color: $color;
+        border-color: $color;
+        &:hover{
+            color: contrast-color(darken($color, 10%), $gray-dark, $light);
+            background: darken($color, 10%);
+            border-color: darken($color, 10%);
+        }
+    }
+    .btn-outline-#{$name}{
+        color: $color;
+        border-color: $color;
+        &:hover{
+            color: contrast-color($color, $gray-dark, $light);
+            background: $color;
+            border-color: $color
+        }
+    }
+}

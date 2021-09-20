@@ -1,0 +1,160 @@
+// display
+@each $name, $type in $display-types{
+    .d-#{$name}{
+        display: $type;
+    }
+}
+
+// display flex
+@each $name, $type in $flex-types{
+    .flex-#{$name}{
+        flex-direction: $type;
+    }
+}
+@each $name, $type in $justify-content-types{
+    .justify-content-#{$name}{
+        justify-content: $type;
+    }
+}
+@each $name, $type in $align-items-types{
+    .align-items-#{$name}{
+        align-items: $type;
+    }
+}
+
+// position
+@each $name, $type in $position-types{
+    .position-#{$name}{
+        position: $type;
+    }
+}
+@each $direction-name, $direction-type in $directions-types{
+    .fixed-#{$direction-type}{
+        #{$direction-type}: 0;
+    }
+    .sticky-#{$direction-type}{
+        #{$direction-type}: 0;
+    }
+}
+.position-center{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+// margin & padding
+@each $spacer-name, $spacer in $spacers{
+    .p-#{$spacer-name}{
+        padding: $spacer;
+    }
+    .px-#{$spacer-name}{
+        padding-left: $spacer;
+        padding-right: $spacer;
+    }
+    .py-#{$spacer-name}{
+        padding-top: $spacer;
+        padding-bottom: $spacer;
+    }
+    .m-#{$spacer-name}{
+        margin: $spacer;
+    }
+    .mx-#{$spacer-name}{
+        margin-left: $spacer;
+        margin-right: $spacer;
+    }
+    .my-#{$spacer-name}{
+        margin-top: $spacer;
+        margin-bottom: $spacer;
+    }
+    @each $direction-name, $direction in $directions-types{
+        .m#{$direction-name}-#{$spacer-name}{
+            margin-#{$direction}: $spacer;
+        }
+        .p#{$direction-name}-#{$spacer-name}{
+            padding-#{$direction}: $spacer;
+        }
+    }
+}
+
+// width
+@each $name, $percent in $percents{
+    .w-#{$name}{
+        width: $percent;
+    }
+}
+
+// over-flow
+.overflow-hidden{
+    overflow: hidden;
+}
+
+// rwd
+@each $breakpoint-name, $breakpoint in $grid-breakpoints{
+    @include rwd($breakpoint){
+        @each $name, $type in $display-types{
+            .d-#{$breakpoint-name}-#{$name}{
+                display: $type;
+            }
+        }
+        @each $name, $type in $flex-types{
+            .flex-#{$breakpoint-name}-#{$name}{
+                flex-direction: $type;
+            }
+        }
+        @each $name, $type in $justify-content-types{
+            .justify-content-#{$breakpoint-name}-#{$name}{
+                justify-content: $type;
+            }
+        }
+        @each $name, $type in $align-items-types{
+            .align-items-#{$breakpoint-name}-#{$name}{
+                align-items: $type;
+            }
+        }
+        @each $name, $type in $position-types{
+            .position-#{$breakpoint-name}-#{$name}{
+                position: $type;
+            }
+        }
+        @each $direction-name, $direction-type in $directions-types{
+            .fixed-#{$breakpoint-name}-#{$direction-type}{
+                #{$direction-type}: 0;
+            }
+            .sticky-#{$breakpoint-name}-#{$direction-type}{
+                #{$direction-type}: 0;
+            }
+        }
+        @each $spacer-name, $spacer in $spacers{
+            .px-#{$breakpoint-name}-#{$spacer-name}{
+                padding-left: $spacer;
+                padding-right: $spacer;
+            }
+            .py-#{$breakpoint-name}-#{$spacer-name}{
+                padding-top: $spacer;
+                padding-bottom: $spacer;
+            }
+            .mx-#{$breakpoint-name}-#{$spacer-name}{
+                margin-left: $spacer;
+                margin-right: $spacer;
+            }
+            .my-#{$breakpoint-name}-#{$spacer-name}{
+                margin-top: $spacer;
+                margin-bottom: $spacer;
+            }
+            @each $direction-name, $direction in $directions-types{
+                .m#{$direction-name}-#{$breakpoint-name}-#{$spacer-name}{
+                    margin-#{$direction}: $spacer;
+                }
+                .p#{$direction-name}-#{$breakpoint-name}-#{$spacer-name}{
+                    padding-#{$direction}: $spacer;
+                }
+            }
+        }
+        @each $name, $percent in $percents{
+            .w-#{$breakpoint-name}-#{$name}{
+                width: $percent;
+            }
+        }
+    }
+}

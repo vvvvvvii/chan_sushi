@@ -1,0 +1,31 @@
+.section{
+    padding: 2rem 0;
+    @include rwd($rwd-md){
+      padding: 2.5rem 0;
+    }
+    @include rwd($rwd-lg){
+      padding: 5rem 0;
+    }
+    &-title{
+      color: $secondary;
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 1rem;
+      @include rwd($rwd-md){
+        font-size: 2rem;
+        margin-bottom: 2rem;
+      }
+      @include rwd($rwd-lg){
+        font-size: 3rem;
+        margin-bottom: 4rem;
+      }
+    }
+}
+.section-lg{
+    &-title{
+      color: $secondary;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+}

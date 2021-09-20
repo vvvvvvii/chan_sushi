@@ -1,0 +1,30 @@
+.card{
+    background: $white;
+    border: 1px solid $gray-light;
+    border-radius: .25rem;
+    &-body{
+        padding: 1rem;
+    }
+    &-footer{
+        display: flex;
+        justify-content: center;
+        padding: 1rem;
+        border-top: 1px solid $gray-light;
+    }
+    &-title{
+        color: $gray-dark;
+        font-size: $font-base-size * 1.5;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+    &-subtitle{
+        color: $gray;
+        font-size: .875rem;
+    }
+    &-img{
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: .25rem .25rem 0 0;
+    }
+}

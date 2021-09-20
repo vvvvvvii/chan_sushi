@@ -1,0 +1,294 @@
+---
+title: 將將壽司
+layout: ./app/layout.ejs
+engine: ejs
+current: index
+---
+<div class="banner d-flex align-items-md-center align-items-end pb-8 text-white">
+  <div class="container">
+      <h3 class="font-md-4 font-2">今晚，該用什麼來慰勞自己呢...</h3>
+      <h2 class="font-md-9 font-7 mb-3">將將壽司</h2>
+      <a href="/store-location.html" class="btn btn-secondary-light">立即訂位</a>
+  </div>
+</div>
+<!-- 菜單 -->
+<div class="bg-primary">
+  <div class="container">
+    <ul class="d-flex">
+      <li>
+        <a href="/product-list.html" title="查看菜單" class="position-relative">
+          <img src="https://images.unsplash.com/photo-1562158074-d49fbeffcc91?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80" alt="握壽司" class="index-menu-img">
+          <span class="index-menu-title">
+            握壽司
+          </span>
+        </a>
+      </li>
+      <li>
+        <a href="/product-list.html" title="查看菜單" class="position-relative">
+          <img src="https://images.unsplash.com/photo-1617196035154-1e7e6e28b0db?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80" alt="壽司捲" class="index-menu-img">
+          <span class="index-menu-title">
+            壽司捲
+          </span>
+        </a>
+      </li>
+      <li>
+        <a href="/product-list.html" title="查看菜單" class="position-relative">
+          <img src="https://images.unsplash.com/photo-1534482421-64566f976cfa?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1498&q=80" alt="刺身" class="index-menu-img">
+          <span class="index-menu-title">
+           刺身
+          </span> 
+        </a>
+      </li>
+      <li>
+        <a href="/product-list.html" title="查看菜單" class="position-relative">
+          <img src="https://images.unsplash.com/photo-1561466273-c13f88329aa0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1506&q=80" alt="副餐" class="index-menu-img">
+          <span class="index-menu-title">
+           副餐
+          </span> 
+        </a>
+      </li>
+      <li>
+        <a href="/product-list.html" title="查看菜單" class="position-relative">
+          <img src="https://images.unsplash.com/photo-1581098365948-6a5a912b7a49?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1500&q=80" alt="飲料" class="index-menu-img">
+          <span class="index-menu-title">
+           飲料
+          </span> 
+        </a>
+      </li>
+      <li>
+        <a href="/product-list.html" title="查看菜單" class="position-relative">
+          <img src="https://images.unsplash.com/photo-1630384057168-b537be58939c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3026&q=80" alt="甜點" class="index-menu-img">
+          <span class="index-menu-title">
+           甜點
+          </span> 
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+<!-- 店舖據點搜尋、訂位、外帶、外送 -->
+<div class="section container">
+  <h3 class="section-title">尋找店舖</h3>
+  <form class="d-flex justify-content-center mb-lg-11 mb-md-7 mb-3">
+    <select name="searchStore" id="searchStore" class="select w-50">
+      <option value="尋找最近的店舖" selected disabled>尋找最近的店舖</option>
+      <option value="台北">台北</option>
+      <option value="桃園">桃園</option>
+      <option value="台中">台中</option>
+      <option value="台南">台南</option>
+      <option value="高雄">高雄</option>
+    </select>
+    <button type="button" class="btn btn-outline-secondary ml-3">搜尋</button>
+  </form>
+  <div class="row">
+    <div class="col-md-4 col-12 mb-md-0 mb-2">
+      <div class="card border-0">
+        <a href="/store-location.html" class="position-relative">
+          <img class="index-takeout-img" src="https://images.unsplash.com/photo-1571764851910-d8dcb56c1d48?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=668&q=80" alt="訂位 App">
+          <div class="index-takeout-text">
+            <span class="position-center fw-bold">
+              <i class="bi bi-bag-fill"></i>
+              立即預訂
+            </span>
+          </div>
+        </a>
+        <div class="card-body">
+          <h3 class="card-title">訂位 App</h3>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 col-12 mb-md-0 mb-2">
+      <div class="card border-0">
+        <a href="/product-list.html" class="position-relative">
+          <img class="index-takeout-img" src="https://images.unsplash.com/photo-1617196035303-964a45bbc9f4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MjV8NVFJdnBZaThBMlV8fGVufDB8fHx8&auto=format&fit=crop&w=900&q=60" alt="外帶餐盒">
+          <div class="index-takeout-text">
+            <span class="position-center fw-bold">
+              <i class="bi bi-bag-fill"></i>
+              查看菜單
+            </span>
+          </div>
+        </a>
+        <div class="card-body">
+          <h3 class="card-title">外帶餐盒</h3>
+        </div>
+      </div>
+    </div>  
+    <div class="col-md-4 col-12 mb-md-0 mb-2">
+      <div class="card border-0">
+        <a href="/store-location.html" class="position-relative">
+          <img class="index-takeout-img" src="https://images.unsplash.com/photo-1559794872-d3bd697d45b8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=668&q=80" alt="外送服務">
+          <div class="index-takeout-text">
+            <span class="position-center fw-bold">
+              <i class="bi bi-bag-fill"></i>
+              立即預訂
+            </span>
+          </div>
+        </a>
+        <div class="card-body">
+          <h3 class="card-title">外送服務</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 我們堅持 -->
+<div class="bg-gray-light section">
+  <div class="container">
+    <h3 class="section-title">我們堅持</h3>
+    <ul class="row mb-8">
+      <li class="col-lg-3 col-md-6 col-12 mb-lg-0 mb-8">
+        <div class="card border-0">
+          <img class="card-img" src="https://images.unsplash.com/photo-1599083856001-ebe325a41162?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80" alt="海港直送漁獲">
+          <div class="card-body">
+            <h4 class="card-title">海港直送漁獲</h4>
+            <p class="text-gray">從捕撈到上桌，低溫配送最新鮮。</p>    
+          </div>
+        </div>
+      </li>
+      <li class="col-lg-3 col-md-6 col-12 mb-lg-0 mb-8">
+        <div class="card border-0">
+          <img class="card-img" src="https://images.unsplash.com/photo-1609054048397-17927af5ade9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8Mnw1UUl2cFlpOEEyVXx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=900&q=60" alt="每日現磨山葵">
+          <div class="card-body">
+            <h4 class="card-title">每日現磨山葵</h4>
+            <p class="text-gray">使用高級生山葵，香氣溫潤不嗆口。</p>    
+          </div>
+        </div>
+      </li>
+      <li class="col-lg-3 col-md-6 col-12 mb-lg-0 mb-8">
+        <div class="card border-0">
+          <img class="card-img" src="https://images.unsplash.com/photo-1582581720432-de83a98176ab?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MXw1UUl2cFlpOEEyVXx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=900&q=60" alt="三種風味醬油">
+          <div class="card-body">
+            <h4 class="card-title">三種風味醬油</h4>
+            <p class="text-gray">根據不同肉質，挑選適當的醬油搭配。</p>    
+          </div>
+        </div>
+      </li>
+      <li class="col-lg-3 col-md-6 col-12 mb-lg-0 mb-8">
+        <div class="card border-0">
+          <img class="card-img" src="https://images.unsplash.com/photo-1562158147-f8d6fbcd76f8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80" alt="衛生安心品管">
+          <div class="card-body">
+            <h4 class="card-title">衛生安心品管</h4>
+            <p class="text-gray">廚房吧台定期消毒，為你守護用餐環境。</p>    
+          </div>
+        </div>
+      </li>
+    </ul>
+    <div class="text-center">
+      <a href="/about.html" class="btn btn-outline-secondary-light w-50">瞭解更多</a>
+    </div>
+  </div>
+</div>
+<!-- 活動新訊 -->
+<div class="section container">
+  <h3 class="section-title">活動新訊</h3>
+  <div class="row">
+    <div class="col-md-4 col-12 mb-md-0 mb-2">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1612492084463-6058e597df6c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1602&q=80" alt="news-img" class="card-img">
+        <div class="card-body">
+          <p class="card-title text-gray-dark border-bottom border-gray pb-1">秋冬關東煮祭典</p>
+          <p class="mb-3">冷冷的天最適合在吃完壽司後，來碗關東煮了！期間限定的關東煮祭典，即日起至 12/31 可在各店舖品嚐。</p>
+          <p class="card-subtitle">活動期間： 11/1 ~ 12/31</p>
+        </div>
+      </div>  
+    </div>
+    <div class="col-md-4 col-12 mb-md-0 mb-2">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=582&q=80" alt="news-img" class="card-img">
+        <div class="card-body">
+          <p class="card-title text-gray-dark border-bottom border-gray pb-1">新品預告</p>
+          <p class="mb-3">「鮭魚酪梨加州卷」將在 11/15 登陸將將壽司啦！選用肥美鮭魚肚搭配清爽酪梨，絕對不容錯過的美味。</p>
+          <p class="card-subtitle">11/15 起限定門市販售</p>
+        </div>
+      </div>  
+    </div>
+    <div class="col-md-4 col-12 mb-md-0 mb-2">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1568899466260-b6d4e061856f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1502&q=80" alt="news-img" class="card-img">
+        <div class="card-body">
+          <p class="card-title text-gray-dark border-bottom border-gray pb-1">年末回饋祭</p>
+          <p class="mb-3">謝謝大家今年的支持，將將壽司年末回饋祭，特定品項將贈送一貫壽司。讓我們一起邁向 2022 ！</p>
+          <p class="card-subtitle">活動期間： 12/21 ~ 01/03</p>
+        </div>
+      </div>  
+    </div>
+  </div>
+</div>
+<!-- 聯絡我們 -->
+<div class="bg-gray-light section">
+  <div class="container">
+    <h3 class="section-title mb-6">聯絡我們</h3>
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-12">
+        <p class="text-gray mb-4">我們相當重視您的意見，若您有任何疑問，可先參考「常見問題」，若仍有任何問題，請填妥以下資料，我們會在近期與您聯繫。</p>
+        <form class="mb-8">
+          <label for="contactName" class="input-label">姓名</label>
+          <input type="text" id="contactName" class="input mb-3" placeholder="陳小明">
+          <label for="contactTel" class="input-label">聯絡電話</label>
+          <input type="text" id="contactTel" class="input mb-3" placeholder="0912-345-678">
+          <label for="contactEmail" class="input-label">電子郵件</label>
+          <input type="text" id="contactEmail" class="input mb-3" placeholder="example@email.com">
+          <label for="feedback" class="input-label">意見反應</label>
+          <textarea id="feedback" cols="30" rows="10" class="input mb-3" placeholder="請輸入您的意見"></textarea>
+          <div class="d-flex align-items-baseline">
+            <input type="checkbox" id="contactPrivacy">
+            <label for="contactPrivacy">我同意隱私權政策，並同意依隱私權政策中所述的方式處理自己的資料。</label>  
+          </div>
+        </form>
+        <div class="text-center">
+          <button type="submit" class="btn btn-lg btn-secondary-light w-50">確認提交</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--
+<div class="section container">
+  <h3 class="section-title">店舖據點</h3>
+  <ul class="row">
+    <li class="col-lg-3 col-md-6 col-12 mb-lg-0 mb-md-5 mb-3">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1532318065232-2ba7c6676cd5?ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8YXNpYW4lMjBtYW58ZW58MHwyfDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" alt="user-img" class="card-img">
+        <div class="card-body">
+          <p class="font-1 text-gray-dark mb-1">台北林森店</p>
+          <p class="mb-1">主打簡單，但細節一點都不馬虎，身為老顧客只希望能出更多款式！</p>
+          <p class="text-gray font-1">Last updated 3 mins ago</p>
+        </div>  
+      </div>
+    </li>
+    <li class="col-lg-3 col-md-6 col-12 mb-lg-0 mb-md-5 mb-3">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1540569014015-19a7be504e3a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=750&q=80" alt="user-img" class="card-img">
+        <div class="card-body">
+          <p class="font-1 text-gray-dark mb-1">台北復興店</p>
+          <p class="mb-1">舒適好穿，剪裁能凸顯手臂線條、修飾啤酒肚，讓我立刻變身網帥。</p>
+          <p class="text-gray font-1">Last updated 10 mins ago</p>  
+        </div>
+      </div>
+    </li>
+    <li class="col-lg-3 col-md-6 col-12 mb-lg-0 mb-md-5 mb-3">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1619443143266-6008deeee7c2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=668&q=80" alt="user-img" class="card-img">
+        <div class="card-body">
+          <p class="font-1 text-gray-dark mb-1">台北市府店</p>
+          <p class="mb-1">喜歡你們家的布料觸感，柔軟卻不易洗成荷葉邊，穿起來十分舒適。還會再次回購！</p>
+          <p class="text-gray font-1">Last updated 35 mins ago</p>  
+        </div>
+      </div>
+    </li>
+    <li class="col-lg-3 col-md-6 col-12 mb-lg-0 mb-md-5 mb-3">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1620613908146-bb9a8bbb7eca?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=582&q=80" alt="user-img" class="card-img">
+        <div class="card-body">
+          <p class="font-1 text-gray-dark mb-1">新北三重店</p>
+          <p class="mb-1">修身剪裁款讓我身材的優點被凸顯出來，缺點則幫我掩蓋起來。請問是下了什麼魔法？</p>
+          <p class="text-gray font-1">Last updated 45 mins ago</p>  
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>-->
+
+
+

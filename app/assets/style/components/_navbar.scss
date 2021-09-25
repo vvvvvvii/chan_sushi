@@ -55,4 +55,10 @@
             color: $white;
         }
     }
+    > .active{
+        background: lighten($secondary, 5%);
+        > .nav-link{
+            color: $white;
+        }
+    }
 }

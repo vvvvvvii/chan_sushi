@@ -16,7 +16,7 @@ current: index
   <div class="container">
     <ul class="d-flex">
       <li>
-        <a href="/product-list.html" title="查看菜單" class="position-relative">
+        <a href="/product-list.html?type=握壽司" title="查看菜單" class="position-relative">
           <img src="https://images.unsplash.com/photo-1562158074-d49fbeffcc91?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80" alt="握壽司" class="index-menu-img">
           <span class="index-menu-title">
             握壽司
@@ -24,7 +24,7 @@ current: index
         </a>
       </li>
       <li>
-        <a href="/product-list.html" title="查看菜單" class="position-relative">
+        <a href="/product-list.html?type=壽司捲" title="查看菜單" class="position-relative">
           <img src="https://images.unsplash.com/photo-1617196035154-1e7e6e28b0db?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80" alt="壽司捲" class="index-menu-img">
           <span class="index-menu-title">
             壽司捲
@@ -32,7 +32,7 @@ current: index
         </a>
       </li>
       <li>
-        <a href="/product-list.html" title="查看菜單" class="position-relative">
+        <a href="/product-list.html?type=刺身" title="查看菜單" class="position-relative">
           <img src="https://images.unsplash.com/photo-1534482421-64566f976cfa?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1498&q=80" alt="刺身" class="index-menu-img">
           <span class="index-menu-title">
            刺身
@@ -40,7 +40,7 @@ current: index
         </a>
       </li>
       <li>
-        <a href="/product-list.html" title="查看菜單" class="position-relative">
+        <a href="/product-list.html?type=副餐" title="查看菜單" class="position-relative">
           <img src="https://images.unsplash.com/photo-1561466273-c13f88329aa0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1506&q=80" alt="副餐" class="index-menu-img">
           <span class="index-menu-title">
            副餐
@@ -48,7 +48,7 @@ current: index
         </a>
       </li>
       <li>
-        <a href="/product-list.html" title="查看菜單" class="position-relative">
+        <a href="/product-list.html?type=飲料" title="查看菜單" class="position-relative">
           <img src="https://images.unsplash.com/photo-1581098365948-6a5a912b7a49?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1500&q=80" alt="飲料" class="index-menu-img">
           <span class="index-menu-title">
            飲料
@@ -56,7 +56,7 @@ current: index
         </a>
       </li>
       <li>
-        <a href="/product-list.html" title="查看菜單" class="position-relative">
+        <a href="/product-list.html?type=甜點" title="查看菜單" class="position-relative">
           <img src="https://images.unsplash.com/photo-1630384057168-b537be58939c?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3026&q=80" alt="甜點" class="index-menu-img">
           <span class="index-menu-title">
            甜點
@@ -70,15 +70,15 @@ current: index
 <div class="section container">
   <h3 class="section-title">尋找店舖</h3>
   <form class="d-flex justify-content-center mb-lg-11 mb-md-7 mb-3">
-    <select name="searchStore" id="searchStore" class="select w-50">
+    <select name="searchStoreIndex" id="searchStoreIndex" class="select w-50">
       <option value="尋找最近的店舖" selected disabled>尋找最近的店舖</option>
       <option value="台北">台北</option>
-      <option value="桃園">桃園</option>
+      <option value="新北">新北</option>
       <option value="台中">台中</option>
       <option value="台南">台南</option>
       <option value="高雄">高雄</option>
     </select>
-    <button type="button" class="btn btn-outline-secondary ml-3">搜尋</button>
+    <button type="button" class="btn btn-outline-secondary ml-3" id="searchStoreBtnIndex">搜尋</button>
   </form>
   <div class="row">
     <div class="col-md-4 col-12 mb-md-0 mb-2">
@@ -99,7 +99,7 @@ current: index
     </div>
     <div class="col-md-4 col-12 mb-md-0 mb-2">
       <div class="card border-0">
-        <a href="/product-list.html" class="position-relative">
+        <a href="/product-list.html?type=外帶餐盒" class="position-relative">
           <img class="index-takeout-img" src="https://images.unsplash.com/photo-1617196035303-964a45bbc9f4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MjV8NVFJdnBZaThBMlV8fGVufDB8fHx8&auto=format&fit=crop&w=900&q=60" alt="外帶餐盒">
           <div class="index-takeout-text">
             <span class="position-center fw-bold">

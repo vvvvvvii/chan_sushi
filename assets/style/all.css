@@ -336,6 +336,10 @@ a {
     color: #342d36; }
     .nav-link:hover {
       color: #fff; }
+  .nav > .active {
+    background: #d84949; }
+    .nav > .active > .nav-link {
+      color: #fff; }
 
 .section {
   padding: 2rem 0; }

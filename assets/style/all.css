@@ -3315,11 +3315,14 @@ a {
 
 .banner {
   background: #000;
-  height: 500px;
+  height: 300px;
   position: relative; }
+  @media only screen and (min-width: 768px) {
+    .banner {
+      height: 500px; } }
   @media only screen and (min-width: 992px) {
     .banner {
-      height: 650px; } }
+      height: 600px; } }
   .banner-text {
     font-size: 1rem;
     position: absolute;
@@ -3347,19 +3350,25 @@ a {
           animation: FadeIn 3s 3s forwards; }
   .index-menu-img {
     width: 800px;
-    height: 500px;
+    height: 300px;
     -o-object-fit: cover;
        object-fit: cover;
     opacity: 0.7;
     -webkit-transition: opacity 0.75s, width 1s ease-in-out;
     -o-transition: opacity 0.75s, width 1s ease-in-out;
     transition: opacity 0.75s, width 1s ease-in-out; }
+    @media only screen and (min-width: 768px) {
+      .index-menu-img {
+        height: 500px; } }
     @media only screen and (min-width: 992px) {
       .index-menu-img {
         height: 600px; } }
     .index-menu-img:hover, .index-menu-img:active, .index-menu-img:focus {
-      width: 1200px;
+      width: 1800px;
       opacity: 1; }
+      @media only screen and (min-width: 768px) {
+        .index-menu-img:hover, .index-menu-img:active, .index-menu-img:focus {
+          width: 1200px; } }
   .index-menu-title {
     position: absolute;
     bottom: 5%;

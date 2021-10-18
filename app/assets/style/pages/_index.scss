@@ -1,9 +1,12 @@
 .banner{
     background: $primary;
-    height: 500px;
+    height: 300px;
     position: relative;
+    @include rwd($rwd-md){
+      height: 500px;
+    }
     @include rwd($rwd-lg){
-      height: 650px;
+      height: 600px;
     }
   &-text{
     font-size: 1rem;
@@ -29,16 +32,22 @@
   animation: FadeIn 3s 3s forwards;
   &-img{
     width: 800px;
-    height: 500px; // 300px;
+    height: 300px;
     object-fit: cover;
     opacity: 0.7;
     transition: opacity 0.75s, width 1s ease-in-out;
+    @include rwd($rwd-md){
+      height: 500px 
+    }
     @include rwd($rwd-lg){
-      height: 600px // 400px;
+      height: 600px 
     }
     &:hover, &:active, &:focus{
-      width: 1200px;
+      width: 1800px;
       opacity: 1;
+      @include rwd($rwd-md){
+        width: 1200px; 
+      }
     }
   }
   &-title{

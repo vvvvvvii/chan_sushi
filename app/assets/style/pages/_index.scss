@@ -1,45 +1,58 @@
 .banner{
-    background: #081010;
-    background-image: url('https://images.unsplash.com/photo-1615361200141-f45040f367be?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');
-    background-repeat: no-repeat;
-    background-size: 50%;
-    background-position: 100% 50%;
-    width: 100%;
-    height: 250px;
-    @include rwd($rwd-md){
-        height: 350px;
-    }
+    background: $primary;
+    height: 500px;
+    position: relative;
     @include rwd($rwd-lg){
-        height: 400px;
+      height: 650px;
     }
+  &-text{
+    font-size: 1rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: FadeOut 8s forwards;
+    @include rwd($rwd-md){
+      font-size: 1.25rem;
+    }
+  }
+  &-cta-icon{
+    position: absolute;
+    bottom: 0;
+    right: -5%;
+    font-size: 1.75rem;
+    animation: upAndDown 1s infinite;
+  }
 }
 .index-menu{
-    &-img{
-        width: 800px;
-        height: 300px;
-        object-fit: cover;
-        opacity: 0.7;
-        transition: opacity 0.75s, width 1s ease-in-out;
-        @include rwd($rwd-lg){
-            height: 400px;
-        }
-        &:hover, &:active, &:focus{
-            width: 1200px;
-            opacity: 1;
-        }
+  opacity: 0;
+  animation: FadeIn 3s 3s forwards;
+  &-img{
+    width: 800px;
+    height: 500px; // 300px;
+    object-fit: cover;
+    opacity: 0.7;
+    transition: opacity 0.75s, width 1s ease-in-out;
+    @include rwd($rwd-lg){
+      height: 600px // 400px;
     }
-    &-title{
-        position: absolute;
-        bottom: 5%;
-        left: 10%;
-        color: $white;
-        font-size: 1rem;
-        font-weight: bold;
-        text-shadow: 0 3px 5px $gray-dark;
-        @include rwd($rwd-md){
-            font-size: 1.5rem;
-        }
+    &:hover, &:active, &:focus{
+      width: 1200px;
+      opacity: 1;
     }
+  }
+  &-title{
+    position: absolute;
+    bottom: 5%;
+    left: 10%;
+    color: $white;
+    font-size: 1rem;
+    font-weight: bold;
+    text-shadow: 0 3px 5px $gray-dark;
+    @include rwd($rwd-md){
+      font-size: 1.5rem;
+    }
+  }
 }
 .index-takeout{
     &-img{
@@ -68,4 +81,28 @@
             opacity: 1;
         }
     }
+}
+
+@keyframes FadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@keyframes FadeOut {
+  0% {
+    opacity:1;
+  }
+  100% {
+    opacity:0;
+  }
+}
+
+@keyframes upAndDown{
+  50% {
+    bottom: 3%
+  }
 }

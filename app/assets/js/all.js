@@ -34,7 +34,7 @@ function render(){
       querySnapshot.forEach(item => {
         const product = item.data();
         str+=`
-        <div class="col-md-4 col-sm-6 col-12 mb-7">
+        <div class="col-md-4 col-sm-6 col-12 mb-5">
           <div class="card border-0">
             <img src="${product.imgUrl}" alt="${product.title}" class="card-img">
             <div class="card-body">
@@ -92,7 +92,7 @@ function renderStoreList(storeArr){
   let str = '';
   storeArr.forEach(store => {
     str+=`
-    <div class="col-lg-4 col-md-6 col-12 mb-7">
+    <div class="col-lg-4 col-md-6 col-12 mb-5">
       <div class="card">
         <img src="${store.imgUrl}" alt="${store.category}${store.title}店" class="card-img">
         <div class="card-body">

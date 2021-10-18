@@ -23,7 +23,6 @@ $colors: map-merge(
     $colors
 );
 
-
 // spacer
 $spacer: 1rem !default;
 $spacers: () !default;
@@ -31,19 +30,13 @@ $spacers: map-merge(
     (
         auto: auto,
         0: 0,
-        1: ($spacer * .5), // 8px,
-        2: ($spacer * .75), // 12px,
-        3: ($spacer * 1), // 16px,
-        4: ($spacer * 1.25), // 20px,
-        5: ($spacer * 1.5), // 24px,
-        6: ($spacer * 1.875), // 30px,
-        7: ($spacer * 2), // 32px,
-        8: ($spacer * 2.5), // 40px,
-        9: ($spacer * 3), // 48px,
-        10: ($spacer * 3.75), // 60px,
-        11: ($spacer * 4), // 64px,
-        12: ($spacer * 5), // 80px,
-        13: ($spacer * 6.25), // 100px,
+        1: ($spacer * .5), // 8px, 
+        2: ($spacer * .75), // 12px, 
+        3: ($spacer * 1), // 16px, 
+        4: ($spacer * 1.25), // 20px, 
+        5: ($spacer * 2), // 32px, 
+        6: ($spacer * 2.5), // 40px, 
+        7: ($spacer * 5), // 80px, 
     ),
     $spacers
 );
@@ -87,12 +80,7 @@ $font-sizes: map-merge(
         1: ($font-base-size * .875), // 14px,
         2: ($font-base-size), // 16px,
         3: ($font-base-size * 1.25), // 20px,
-        4: ($font-base-size * 1.5), // 24px,
-        5: ($font-base-size * 1.75), // 28px,
-        6: ($font-base-size * 2), // 32px,
-        7: ($font-base-size * 2.25), // 36px,
-        8: ($font-base-size * 3), // 48px,
-        9: ($font-base-size * 4), // 64px,
+        4: ($font-base-size * 2), // 32px,
     ),
     $font-sizes
 );

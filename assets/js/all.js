@@ -159,7 +159,10 @@ $(document).ready(function () {
       }
     },
     submitHandler: function submitHandler(form) {
-      form.submit();
+      $('#alert').fadeIn(1000).delay(1500).fadeOut(1000);
+      setTimeout(function () {
+        form.submit();
+      }, 3500);
     }
   }); // 首頁搜尋店舖，跳轉畫面秀出對應資料
 

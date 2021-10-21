@@ -68,7 +68,7 @@ current: index
   </div>
 </div>
 <!-- 店舖據點搜尋、訂位、外帶、外送 -->
-<div class="section container">
+<div class="section container" data-aos="fade-up" data-aos-duration="2000" data-aos-easing="linear">
   <h3 class="section-title">尋找店舖</h3>
   <form class="d-flex justify-content-center mb-lg-11 mb-md-5 mb-3">
     <select name="searchStoreIndex" id="searchStoreIndex" class="select w-50">
@@ -136,8 +136,8 @@ current: index
 <div class="bg-gray-light section">
   <div class="container">
     <h3 class="section-title">我們堅持</h3>
-    <ul class="row mb-6">
-      <li class="col-lg-3 col-md-6 col-12 mb-lg-0 mb-6">
+    <ul class="row mb-lg-6 mb-0">
+      <li class="col-lg-3 col-md-6 col-12 mb-lg-0 mb-6" data-aos="fade-up" data-aos-duration="1000">
         <div class="card border-0">
           <img class="card-img" src="https://images.unsplash.com/photo-1599083856001-ebe325a41162?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80" alt="海港直送漁獲">
           <div class="card-body">
@@ -146,7 +146,7 @@ current: index
           </div>
         </div>
       </li>
-      <li class="col-lg-3 col-md-6 col-12 mb-lg-0 mb-6">
+      <li class="col-lg-3 col-md-6 col-12 mb-lg-0 mb-6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
         <div class="card border-0">
           <img class="card-img" src="https://images.unsplash.com/photo-1609054048397-17927af5ade9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8Mnw1UUl2cFlpOEEyVXx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=900&q=60" alt="每日現磨山葵">
           <div class="card-body">
@@ -155,7 +155,7 @@ current: index
           </div>
         </div>
       </li>
-      <li class="col-lg-3 col-md-6 col-12 mb-lg-0 mb-6">
+      <li class="col-lg-3 col-md-6 col-12 mb-lg-0 mb-6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
         <div class="card border-0">
           <img class="card-img" src="https://images.unsplash.com/photo-1582581720432-de83a98176ab?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MXw1UUl2cFlpOEEyVXx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=900&q=60" alt="三種風味醬油">
           <div class="card-body">
@@ -164,7 +164,7 @@ current: index
           </div>
         </div>
       </li>
-      <li class="col-lg-3 col-md-6 col-12 mb-lg-0 mb-6">
+      <li class="col-lg-3 col-md-6 col-12 mb-lg-0 mb-6" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="900">
         <div class="card border-0">
           <img class="card-img" src="https://images.unsplash.com/photo-1562158147-f8d6fbcd76f8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80" alt="衛生安心品管">
           <div class="card-body">
@@ -180,7 +180,7 @@ current: index
   </div>
 </div>
 <!-- 活動新訊 -->
-<div class="section container">
+<div class="section container" data-aos="fade-up" data-aos-duration="2000" data-aos-easing="linear">
   <h3 class="section-title">活動新訊</h3>
   <div class="row">
     <div class="col-md-4 col-12 mb-md-0 mb-2">
@@ -221,23 +221,41 @@ current: index
     <h3 class="section-title mb-5">聯絡我們</h3>
     <div class="row justify-content-center">
       <div class="col-md-8 col-12">
-        <p class="text-gray mb-4">我們相當重視您的意見，若您有任何疑問，可先參考「常見問題」，若仍有任何問題，請填妥以下資料，我們會在近期與您聯繫。</p>
-        <form class="mb-6">
-          <label for="contactName" class="input-label">姓名</label>
-          <input type="text" id="contactName" class="input mb-3" placeholder="陳小明">
-          <label for="contactTel" class="input-label">聯絡電話</label>
-          <input type="text" id="contactTel" class="input mb-3" placeholder="0912-345-678">
-          <label for="contactEmail" class="input-label">電子郵件</label>
-          <input type="text" id="contactEmail" class="input mb-3" placeholder="example@email.com">
-          <label for="feedback" class="input-label">意見反應</label>
-          <textarea id="feedback" cols="30" rows="10" class="input mb-3" placeholder="請輸入您的意見"></textarea>
-          <div class="d-flex align-items-baseline">
-            <input type="checkbox" id="contactPrivacy">
-            <label for="contactPrivacy">我同意隱私權政策，並同意依隱私權政策中所述的方式處理自己的資料。</label>  
+        <p class="text-gray mb-4">我們相當重視您的意見，若您有任何疑問，可先參考
+          <a href="faq.html" title="前往常見問題" class="text-secondary d-inline-block">常見問題</a>
+          。若仍有任何問題，請填妥以下資料，我們會在近期與您聯繫。</p>
+        <form id="contactForm">
+          <div class="mb-3">
+            <label for="contactName" class="input-label">姓名</label>
+            <input type="text" id="contactName" name="name" class="input" placeholder="陳小明">  
+          </div>
+          <div class="mb-3">
+            <label for="contactTel" class="input-label">聯絡電話</label>
+            <input type="number" id="contactTel" name="tel" class="input" placeholder="0912345678">
+          </div>
+          <div class="mb-3">
+            <label for="contactEmail" class="input-label">電子郵件</label>
+            <input type="email" id="contactEmail" name="email" class="input" placeholder="example@email.com">
+          </div>
+          <div class="mb-3">
+            <label for="feedback" class="input-label">意見反應</label>
+            <textarea id="feedback" cols="30" rows="10" name="feedback" class="input" placeholder="請輸入您的意見"></textarea>
+          </div>
+          <div class="mb-6">
+            <div class="d-flex align-items-baseline">
+              <input type="checkbox" id="contactPrivacy" name="policy">
+              <label for="contactPrivacy">我同意隱私權政策，並同意依隱私權政策中所述的方式處理自己的資料。</label>  
+            </div>
+          </div>
+          <div class="text-center">
+            <button type="submit" class="btn btn-lg btn-secondary-light w-50" id="contactFormSubmitBtn">確認提交</button>
           </div>
         </form>
-        <div class="text-center">
-          <button type="submit" class="btn btn-lg btn-secondary-light w-50">確認提交</button>
+        <div class="alert d-none" id="alert">
+          <div class="alert-inner">
+            <i class="bi bi-emoji-smile font-4 d-block mb-1"></i>
+            <p>我們已收到您的意見</p>  
+          </div>
         </div>
       </div>
     </div>

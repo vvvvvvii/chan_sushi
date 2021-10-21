@@ -5,12 +5,15 @@
 @import 'base/mixin/mixin';
 @import 'base/reboot';
 
+@import 'components/alert';
 @import 'components/button';
 @import 'components/card';
 @import 'components/form';
 @import 'components/list';
+@import 'components/loader';
 @import 'components/navbar';
 @import 'components/section';
+@import 'components/validation';
 
 @import 'utils/grids';
 @import 'utils/layout';

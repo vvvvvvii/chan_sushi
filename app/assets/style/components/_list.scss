@@ -1,5 +1,16 @@
 .list-item{
-  padding-bottom: 2rem;
   margin-bottom: 2rem;
-  border-bottom: 1px solid $gray-light;
+  &-title{
+    font-size: 1.25rem;
+    color: $gray-dark;
+    padding: 1rem 0;
+    border-bottom: 1px solid $gray-light;
+    &:hover{
+      cursor: pointer;
+    }
+  }
+  > .active{
+    padding: 1rem 1.875rem;
+    background: $gray-light;
+  }
 }

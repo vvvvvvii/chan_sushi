@@ -43,11 +43,8 @@
       height: 600px 
     }
     &:hover, &:active, &:focus{
-      width: 1800px;
+      width: 1200px;
       opacity: 1;
-      @include rwd($rwd-md){
-        width: 1200px; 
-      }
     }
   }
   &-title{

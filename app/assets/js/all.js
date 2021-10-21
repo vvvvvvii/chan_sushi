@@ -19,6 +19,9 @@ const stores = db.collection('stores');
 let productCategory = '握壽司';
 let storeCategory = '尋找最近的店舖';
 
+// 初始化 AOS
+AOS.init();
+
 // 渲染畫面
 function render(){
   if(document.querySelector('#productList')){
@@ -47,6 +50,7 @@ function render(){
       });
       $('#productList').html(str);
       $('#productListTitle').html(productCategory);
+      $('#loader').hide();
       // 第一次進入頁面時， nav-item 即可正確顯示 active class
       document.querySelectorAll('.nav-link').forEach(item=>{
         if(item.innerHTML === productCategory){
@@ -86,6 +90,8 @@ function render(){
         renderStoreList(storeArr);
       })
     }
+  }else{
+    $('#loader').hide();
   }
 }
 function renderStoreList(storeArr){
@@ -121,6 +127,7 @@ function renderStoreList(storeArr){
     `
   })
   $('#storeList').html(str);
+  $('#loader').hide();
 }
 
 $(document).ready(function () {
@@ -128,9 +135,9 @@ $(document).ready(function () {
   render();
   // 漢堡選單
   $('#collapseNavbarBtn').on('click', function(){
-    $('#collapse-navbar-menu').slideToggle();
+    $('#collapseNavbarMenu').slideToggle();
   })  
-  // 點選列表，沒被點到的移除 active class (render function 中會加上對應 active class)
+  // 菜單點選列表，沒被點到的移除 active class (render function 中會加上對應 active class)
   $('.nav-link').on('click',function(event){
     event.preventDefault(); 
     $(this).parent().siblings().removeClass('active');
@@ -143,6 +150,48 @@ $(document).ready(function () {
     }
     render();
   })
+  // 常見問答點選列表，點到的展開
+  $('#faqList').children().on('click', function(){
+    $(this).children().next().slideToggle();
+    $(this).children().next().addClass('active');
+  })
+  // 首頁聯絡我們表單驗證
+  $("#contactForm").validate({
+    rules: {
+      name: {
+        required: true,
+      },
+      tel: {
+        required: true,
+        number: true,
+        minlength: 7,
+      },
+      email: {
+        required: true,
+        email: true,
+      },
+      feedback: {
+        required: true,
+      },
+      policy: {
+        required: true,
+      }     
+    },
+    errorPlacement:function(error, element){
+      if($(element).attr("name") == "policy"){
+        if(element.parent().next().attr("class") == "error"){
+          element.parent().next().remove();
+        }
+        error.css("display","block").insertAfter(element.parent());
+      } else {
+        error.insertAfter(element);
+      }
+    },
+    submitHandler: function(form) {
+      $('#alert').fadeIn(1000).delay(1500).fadeOut(1000);
+      setTimeout(function(){form.submit();}, 3500);
+    }       
+  });
   // 首頁搜尋店舖，跳轉畫面秀出對應資料
   $('#searchStoreBtnIndex').on('click',function(){
     storeCategory = $(this).siblings()[0].value;

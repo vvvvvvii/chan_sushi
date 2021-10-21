@@ -282,9 +282,64 @@ a {
   border-radius: .25rem; }
 
 .list-item {
-  padding-bottom: 2rem;
-  margin-bottom: 2rem;
-  border-bottom: 1px solid #e8e8e8; }
+  margin-bottom: 2rem; }
+  .list-item-title {
+    font-size: 1.25rem;
+    color: #342d36;
+    padding: 1rem 0;
+    border-bottom: 1px solid #e8e8e8; }
+    .list-item-title:hover {
+      cursor: pointer; }
+  .list-item > .active {
+    padding: 1rem 1.875rem;
+    background: #e8e8e8; }
+
+.loader-bg {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: fixed;
+  z-index: 200;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.95);
+  color: #fff;
+  text-align: center; }
+
+.loader-icon {
+  font-size: 3rem; }
+
+.loader-text {
+  -webkit-animation: ChangeHeight 3s infinite;
+          animation: ChangeHeight 3s infinite;
+  font-size: 1.5rem;
+  font-weight: bold; }
+
+@-webkit-keyframes ChangeHeight {
+  0% {
+    height: 5%; }
+  50% {
+    height: 0%; }
+  100% {
+    height: 5%; } }
+
+@keyframes ChangeHeight {
+  0% {
+    height: 5%; }
+  50% {
+    height: 0%; }
+  100% {
+    height: 5%; } }
 
 .navbar {
   background: #000;
@@ -389,6 +444,11 @@ a {
   color: #d33434;
   font-size: 2rem;
   margin-bottom: 2rem; }
+
+.error {
+  color: #d33434;
+  display: block;
+  margin-top: .5rem; }
 
 .container {
   width: 100%;
@@ -3364,11 +3424,8 @@ a {
       .index-menu-img {
         height: 600px; } }
     .index-menu-img:hover, .index-menu-img:active, .index-menu-img:focus {
-      width: 1800px;
+      width: 1200px;
       opacity: 1; }
-      @media only screen and (min-width: 768px) {
-        .index-menu-img:hover, .index-menu-img:active, .index-menu-img:focus {
-          width: 1200px; } }
   .index-menu-title {
     position: absolute;
     bottom: 5%;

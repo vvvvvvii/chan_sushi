@@ -35,10 +35,9 @@ function render() {
       var str = '';
       querySnapshot.forEach(function (item) {
         var product = item.data();
-        str += "\n        <div class=\"col-md-4 col-sm-6 col-12 mb-5\">\n          <div class=\"card border-0\">\n            <img src=\"".concat(product.imgUrl, "\" alt=\"").concat(product.title, "\" class=\"card-img\">\n            <div class=\"card-body\">\n              <h3 class=\"card-title mb-0\">").concat(product.title, "</h3>\n              <p class=\"text-center font-2\">").concat(product.price, " \u5143</p>\n            </div>\n          </div>\n        </div>\n        ");
+        str += "\n        <div class=\"col-xl-3 col-md-4 col-sm-6 col-12 mb-5\">\n          <div class=\"card border-0\">\n            <img src=\"".concat(product.imgUrl, "\" alt=\"").concat(product.title, "\" class=\"card-img\">\n            <div class=\"card-body d-flex justify-content-between\">\n              <h3>").concat(product.title, "</h3>\n              <p class=\"card-subtitle ml-3\">NT ").concat(product.price, "</p>\n            </div>\n          </div>\n        </div>\n        ");
       });
       $('#productList').html(str);
-      $('#productListTitle').html(productCategory);
       $('#loader').hide(); // 第一次進入頁面時， nav-item 即可正確顯示 active class
 
       document.querySelectorAll('.nav-link').forEach(function (item) {

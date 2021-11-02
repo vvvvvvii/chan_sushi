@@ -1,43 +1,49 @@
 // font-size
 @each $name, $font-size in $font-sizes{
-    .font-#{$name}{
-        font-size: $font-size;
-    }
+  .font-#{$name}{
+    font-size: $font-size;
+  }
 }
 @each $breakpoint-name, $breakpoint in $grid-breakpoints{
-    @each $name, $font-size in $font-sizes{
-        @include rwd($breakpoint){
-            .font-#{$breakpoint-name}-#{$name}{
-                font-size: $font-size;
-            }
-        }
+  @each $name, $font-size in $font-sizes{
+    @include rwd($breakpoint){
+      .font-#{$breakpoint-name}-#{$name}{
+        font-size: $font-size;
+      }
     }
+  }
 }
 
 // font-weight
 .fw-bold{
-    font-weight: bold;
+  font-weight: bold;
 }
 
 // text color
 @each $name, $color in $colors{
-    .text-#{$name}{
-        color: $color;
-    }
+  .text-#{$name}{
+    color: $color;
+  }
 }
 
 // text-position
 @each $name, $direction in $text-directions-types{
-    .text-#{$name}{
-        text-align: $direction;
-    }
+  .text-#{$name}{
+    text-align: $direction;
+  }
 }
 @each $breakpoint-name, $breakpoint in $grid-breakpoints{
-    @each $name, $direction in $text-directions-types{
-        @include rwd($breakpoint){
-            .text-#{$breakpoint-name}-#{$name}{
-                text-align: $direction;
-            }
-        }
+  @each $name, $direction in $text-directions-types{
+    @include rwd($breakpoint){
+      .text-#{$breakpoint-name}-#{$name}{
+        text-align: $direction;
+      }
     }
+  }
+}
+
+// vertical-writing
+.vertical-writing{
+  -webkit-writing-mode: vertical-rl;
+  writing-mode: vertical-rl;
 }

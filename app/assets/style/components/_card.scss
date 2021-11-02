@@ -18,8 +18,12 @@
         margin-bottom: 1rem;
     }
     &-subtitle{
+        font-size: $font-base-size * .875;
+        white-space: nowrap;
+    }
+    &-text{
         color: $gray;
-        font-size: .875rem;
+        font-size: $font-base-size * .875;
     }
     &-img{
         width: 100%;

@@ -37,19 +37,18 @@ function render(){
       querySnapshot.forEach(item => {
         const product = item.data();
         str+=`
-        <div class="col-md-4 col-sm-6 col-12 mb-5">
+        <div class="col-xl-3 col-md-4 col-sm-6 col-12 mb-5">
           <div class="card border-0">
             <img src="${product.imgUrl}" alt="${product.title}" class="card-img">
-            <div class="card-body">
-              <h3 class="card-title mb-0">${product.title}</h3>
-              <p class="text-center font-2">${product.price} 元</p>
+            <div class="card-body d-flex justify-content-between">
+              <h3>${product.title}</h3>
+              <p class="card-subtitle ml-3">NT ${product.price}</p>
             </div>
           </div>
         </div>
         `
       });
       $('#productList').html(str);
-      $('#productListTitle').html(productCategory);
       $('#loader').hide();
       // 第一次進入頁面時， nav-item 即可正確顯示 active class
       document.querySelectorAll('.nav-link').forEach(item=>{

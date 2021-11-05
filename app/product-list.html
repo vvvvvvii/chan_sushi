@@ -4,23 +4,23 @@ layout: ./app/layout.ejs
 engine: ejs
 current: product-list
 ---
-
-  <div class="bg-menu">
-    <svg viewBox="0 0 500 150">
-      <defs>
-        <pattern id="imgpattern" x="0" y="0" width="1" height="1" preserveAspectRatio="xMidYMid slice">
-          <image xlink:href="https://images.unsplash.com/photo-1613758235256-43a7bdc21d82"
-            style="width: 100%;"/>
-        </pattern>
-      </defs>
+<div class="bg-menu">
+  <svg viewBox="0 0 500 150" preserveAspectRatio="xMaxYMax slice" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <pattern id="imgpattern" x="0" y="0" width="1" height="1" preserveAspectRatio="xMidYMid slice">
+        <image xlink:href="https://images.unsplash.com/photo-1613758235256-43a7bdc21d82"/
+          class="w-100">
+      </pattern>
+    </defs>
+    <g transform="translate(0,0)">
       <path d="M0.00,85.27 C105.83,162.92 344.30,38.39 500.00,115.03 L500.00,0.00 L0.00,0.00 Z"
-        fill="url(#imgpattern)" height="800"></path>
-    </svg>
-  </div>
-
-<div class="container py-7">
+        fill="url(#imgpattern)"></path>
+    </g>  
+  </svg>  
+</div>
+<div class="container py-lg-7 py-5">
   <!-- 菜單選單 -->
-  <div class="vertical-writing mx-auto mb-7">
+  <div class="menu-list mx-auto mb-7">
     <h2 class="ml-3 pt-4 text-gray-dark fw-bold">菜單</h2>
     <ul class="nav">
       <li class="nav-item">
@@ -46,8 +46,7 @@ current: product-list
       </li>
     </ul>
   </div>
-  
   <!-- 菜單內容 -->
-  <div class="row pt-7" id="productList">
+  <div class="row pt-lg-7 pt-5" id="productList">
   </div>
 </div>

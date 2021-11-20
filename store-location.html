@@ -9,6 +9,8 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
   <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
   <link rel="stylesheet" href="./assets/style/all.css">
 </head>
 
@@ -50,23 +52,30 @@
   </header>
   <div class="bg-gray-light py-5">
   <h2 class="section-lg-title text-center">店舖據點</h2>
-  <div class="container d-flex justify-content-center">
-    <select name="searchStoreLocation" id="searchStoreLocation" class="select w-50">
-      <option value="尋找最近的店舖" selected disabled>尋找最近的店舖</option>
-      <option value="台北">台北</option>
-      <option value="新北">新北</option>
-      <option value="台中">台中</option>
-      <option value="台南">台南</option>
-      <option value="高雄">高雄</option>
-    </select>
-    <button type="button" class="btn btn-outline-secondary ml-3" id="searchStoreBtnLocation">搜尋</button>
+  <div class="select w-50 mx-auto position-relative" id="searchStoreLocation">
+    <p>尋找最近的店舖</p>
+    <i class="bi bi-caret-down-fill"></i>
+    <ul class="option d-none" id="storeLocationList">
+      <li>台北</li>
+      <li>新北</li>
+      <li>台中</li>
+      <li>台南</li>
+      <li>高雄</li>
+    </ul>
   </div>
 </div>
+<div id="storeModal"></div>
 <div class="container py-7">
   <div class="row" id="storeList">
   </div>
 </div>
-
+<div class="alert d-none" id="bookingAlert">
+  <div class="alert-inner">
+    <i class="bi bi-emoji-smile font-4 d-block mb-1"></i>
+    <p>我們已收到您的訂位</p>  
+    <p>請至信箱收取訂位 QR Code</p>
+  </div>
+</div>
 
   <footer class="bg-primary text-white w-100 py-lg-5 py-md-6 py-4">
     <div class="container">
@@ -155,4 +164,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/localization/messages_zh_TW.min.js" integrity="sha512-Jb2FAlTKk8Fp5FvttkCul6GniwPDe+3tuFBjF00dKh8v7uMOa7dhTUSKW0CYWjOKEXOwORL6o+Apz9EroLWrHw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="./assets/js/all.js"></script>
 </body>
+<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
 </html>

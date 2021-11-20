@@ -88,11 +88,56 @@ function render() {
 
 function renderStoreList(storeArr) {
   var str = '';
-  storeArr.forEach(function (store) {
-    str += "\n    <div class=\"col-lg-4 col-md-6 col-12 mb-5\">\n      <div class=\"card\">\n        <img src=\"".concat(store.imgUrl, "\" alt=\"").concat(store.category).concat(store.title, "\u5E97\" class=\"card-img\">\n        <div class=\"card-body\">\n          <h3 class=\"card-title\">").concat(store.category).concat(store.title, "\u5E97</h3>\n          <ul>\n            <li class=\"mb-2\">\n              <i class=\"bi bi-telephone-fill\"></i>\n              <span class=\"ml-1\">").concat(store.tel, "</span>\n            </li>\n            <li class=\"mb-2\">\n              <i class=\"bi bi-clock-fill\"></i>\n              <span class=\"ml-1\">").concat(store.time[0], ":00 ~ ").concat(store.time[1], ":00</span>\n            </li>\n            <li class=\"d-flex\">\n              <i class=\"bi bi-pin-angle-fill\"></i>\n              <span class=\"ml-1\">").concat(store.address, "</span>\n            </li>\n          </ul>\n        </div>\n        <div class=\"card-footer\">\n          <a href=\"#\" class=\"btn btn-secondary-light\">\u7ACB\u5373\u8A02\u4F4D</a>\n          <a href=\"#\" class=\"btn btn-outline-secondary-light ml-2\">\u5916\u9001\u9EDE\u9910</a>\n        </div>\n      </div>\n    </div>\n    ");
+  var str2 = '';
+  storeArr.forEach(function (store, storeKey) {
+    str += "\n    <div class=\"col-lg-4 col-md-6 col-12 mb-5\">\n      <div class=\"card\">\n        <img src=\"".concat(store.imgUrl, "\" alt=\"").concat(store.category).concat(store.title, "\u5E97\" class=\"card-img\">\n        <div class=\"card-body\">\n          <h3 class=\"card-title\">").concat(store.category).concat(store.title, "\u5E97</h3>\n          <ul>\n            <li class=\"mb-2\">\n              <i class=\"bi bi-telephone-fill\"></i>\n              <span class=\"ml-1\">").concat(store.tel, "</span>\n            </li>\n            <li class=\"mb-2\">\n              <i class=\"bi bi-clock-fill\"></i>\n              <span class=\"ml-1\">").concat(store.time[0], ":00 ~ ").concat(store.time[1], ":00</span>\n            </li>\n            <li class=\"d-flex\">\n              <i class=\"bi bi-pin-angle-fill\"></i>\n              <span class=\"ml-1\">").concat(store.address, "</span>\n            </li>\n          </ul>\n        </div>\n        <div class=\"card-footer\">\n          <button class=\"btn btn-secondary-light modal-label-btn\" id=\"modal-label-").concat(storeKey, "\" data-modal-title=\"").concat(store.title, "\">\u7ACB\u5373\u8A02\u4F4D</button>\n          <button class=\"btn btn-outline-secondary-light ml-2\">\u5916\u9001\u9EDE\u9910</button>\n        </div>\n      </div>\n    </div>\n    ");
+    str2 += "\n    <div class=\"modal-outer d-none\" id=\"modal-".concat(storeKey, "\">\n      <div class=\"modal-inner\">\n        <p class=\"modal-exit mb-3\">\n          <i class=\"bi bi-x-lg\"></i>\n        </p>\n        <h3 class=\"modal-title\">").concat(store.category).concat(store.title, "\u5E97</h3>\n        <p class=\"modal-subtitle mb-5\">").concat(store.address, "</p>\n        <div class=\"d-flex justify-content-between\">\n          <div class=\"w-50\">\n          </div>\n          <form class=\"w-50\">\n            <div class=\"mb-5\">\n              <p class=\"mb-2\">\u9810\u5B9A\u65E5\u671F\uFF1A</p>\n              <input type=\"text\" class=\"datepicker w-100\">\n            </div>\n            <div class=\"mb-5\">\n              <p class=\"mb-2\">\u9810\u5B9A\u6642\u6BB5\uFF1A</p>\n              <input type=\"text\" class=\"timepicker w-100\" name=\"time\" id=\"booking-time-").concat(storeKey, "\"/>\n            </div>\n            <div class=\"d-flex mb-5\">\n              <div>\n                <p class=\"mb-2\">\u8A02\u4F4D\u59D3\u540D\uFF1A</p>\n                <input type=\"text\"/>\n              </div>\n              <div class=\"ml-1\">\n                <p class=\"mb-2\">\u8A02\u4F4D\u4EBA\u6578\uFF1A</p>\n                <input type=\"number\"/>\n              </div>\n            </div>\n            <div class=\"mb-5\">\n              <p class=\"mb-2\">\u9023\u7D61\u4FE1\u7BB1\uFF1A</p>\n              <input type=\"text\" class=\"w-100\"/>\n            </div>\n            <button type=\"button\" class=\"btn btn-secondary-light w-100 send-rsvn\">\u78BA\u8A8D\u8A02\u4F4D</button>\n          </form>\n        </div>\n      </div>\n    </div>\n    ");
   });
   $('#storeList').html(str);
-  $('#loader').hide();
+  $('#storeModal').html(str2);
+  $('#loader').hide(); // 跑完上面才綁定店舖頁訂位 modal
+
+  storeModalShow(storeArr);
+} // 店舖頁點「立即訂位」 modal 相關功能
+
+
+function storeModalShow(storeArr) {
+  // 開啟
+  $('.modal-label-btn').on('click', function (e) {
+    var storeKey = e.target.id.split('-')[2];
+    $("#modal-".concat(storeKey)).removeClass('d-none');
+    var modalStore = storeArr.find(function (store) {
+      return store.title === e.target.dataset.modalTitle;
+    });
+    var timePickerMin = modalStore.time[0].toString();
+    var timePickerMax = modalStore.time[1].toString();
+    $(function () {
+      // datePicker
+      $(".datepicker").datepicker({
+        dateFormat: "yy-mm-dd",
+        minDate: '0',
+        maxDate: "+1M -1D"
+      }); // timePicker
+
+      $("#booking-time-".concat(storeKey)).timepicker({
+        timeFormat: 'hh:mm p',
+        minTime: timePickerMin,
+        maxTime: timePickerMax
+      });
+    }); // 送出訂單關閉 modal 彈出 alert 視窗
+
+    $('.send-rsvn').on('click', function () {
+      $("#modal-".concat(storeKey)).addClass('d-none');
+      $('#bookingAlert').fadeIn(1000).delay(1500).fadeOut(1000);
+    });
+  }); // 關閉
+  // $('.modal-outer').on('click',function(){
+  //   $(this).addClass('d-none');
+  // })
+
+  $('.modal-exit').on('click', function () {
+    $(this).parent().parent().addClass('d-none');
+  });
 }
 
 $(document).ready(function () {
@@ -171,14 +216,18 @@ $(document).ready(function () {
     document.location = url;
   }); // 店舖頁搜尋店舖，秀出對應資料
 
-  $('#searchStoreBtnLocation').on('click', function () {
-    storeCategory = $(this).siblings()[0].value;
-    var url = "/store-location.html?type=".concat(storeCategory);
-    history.replaceState({
-      url: url,
-      title: document.title
-    }, document.title, url);
-    render();
+  $('#searchStoreLocation').on('click', function (e) {
+    $('#storeLocationList').slideToggle();
+
+    if (e.target.innerHTML.length === 2) {
+      storeCategory = e.target.innerHTML;
+      var url = "/store-location.html?type=".concat(storeCategory);
+      history.replaceState({
+        url: url,
+        title: document.title
+      }, document.title, url);
+      render();
+    }
   });
 });
 //# sourceMappingURL=all.js.map

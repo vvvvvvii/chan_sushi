@@ -95,7 +95,9 @@ function render(){
 }
 function renderStoreList(storeArr){
   let str = '';
-  storeArr.forEach(store => {
+  let str2 = '';
+
+  storeArr.forEach((store,storeKey) => {
     str+=`
     <div class="col-lg-4 col-md-6 col-12 mb-5">
       <div class="card">
@@ -118,15 +120,95 @@ function renderStoreList(storeArr){
           </ul>
         </div>
         <div class="card-footer">
-          <a href="#" class="btn btn-secondary-light">立即訂位</a>
-          <a href="#" class="btn btn-outline-secondary-light ml-2">外送點餐</a>
+          <button class="btn btn-secondary-light modal-label-btn" id="modal-label-${storeKey}" data-modal-title="${store.title}">立即訂位</button>
+          <button class="btn btn-outline-secondary-light ml-2">外送點餐</button>
+        </div>
+      </div>
+    </div>
+    `
+    str2+=`
+    <div class="modal-outer d-none" id="modal-${storeKey}">
+      <div class="modal-inner">
+        <p class="modal-exit mb-3">
+          <i class="bi bi-x-lg"></i>
+        </p>
+        <h3 class="modal-title">${store.category}${store.title}店</h3>
+        <p class="modal-subtitle mb-5">${store.address}</p>
+        <div class="d-flex justify-content-between">
+          <div class="w-50">
+          </div>
+          <form class="w-50">
+            <div class="mb-5">
+              <p class="mb-2">預定日期：</p>
+              <input type="text" class="datepicker w-100">
+            </div>
+            <div class="mb-5">
+              <p class="mb-2">預定時段：</p>
+              <input type="text" class="timepicker w-100" name="time" id="booking-time-${storeKey}"/>
+            </div>
+            <div class="d-flex mb-5">
+              <div>
+                <p class="mb-2">訂位姓名：</p>
+                <input type="text"/>
+              </div>
+              <div class="ml-1">
+                <p class="mb-2">訂位人數：</p>
+                <input type="number"/>
+              </div>
+            </div>
+            <div class="mb-5">
+              <p class="mb-2">連絡信箱：</p>
+              <input type="text" class="w-100"/>
+            </div>
+            <button type="button" class="btn btn-secondary-light w-100 send-rsvn">確認訂位</button>
+          </form>
         </div>
       </div>
     </div>
     `
   })
   $('#storeList').html(str);
+  $('#storeModal').html(str2);
   $('#loader').hide();
+  // 跑完上面才綁定店舖頁訂位 modal
+  storeModalShow(storeArr);
+}
+// 店舖頁點「立即訂位」 modal 相關功能
+function storeModalShow(storeArr){
+  // 開啟
+  $('.modal-label-btn').on('click', function(e){
+    const storeKey = e.target.id.split('-')[2];
+    $(`#modal-${storeKey}`).removeClass('d-none');
+    const modalStore = storeArr.find(store=> store.title===e.target.dataset.modalTitle);
+    const timePickerMin = modalStore.time[0].toString();  
+    const timePickerMax = modalStore.time[1].toString();  
+    $(function () {
+      // datePicker
+      $(".datepicker").datepicker({
+        dateFormat: "yy-mm-dd", 
+        minDate: '0',
+        maxDate: "+1M -1D"
+      });
+      // timePicker
+      $(`#booking-time-${storeKey}`).timepicker({
+        timeFormat: 'hh:mm p',
+        minTime: timePickerMin,
+        maxTime: timePickerMax,
+      });
+    });
+    // 送出訂單關閉 modal 彈出 alert 視窗
+    $('.send-rsvn').on('click',function(){
+      $(`#modal-${storeKey}`).addClass('d-none');
+      $('#bookingAlert').fadeIn(1000).delay(1500).fadeOut(1000);
+    })
+  })
+  // 關閉
+  // $('.modal-outer').on('click',function(){
+  //   $(this).addClass('d-none');
+  // })
+  $('.modal-exit').on('click', function(){
+    $(this).parent().parent().addClass('d-none');
+  })
 }
 
 $(document).ready(function () {
@@ -198,11 +280,14 @@ $(document).ready(function () {
     document.location = url;
   })
   // 店舖頁搜尋店舖，秀出對應資料
-  $('#searchStoreBtnLocation').on('click',function(){
-    storeCategory = $(this).siblings()[0].value;
-    const url = `/store-location.html?type=${storeCategory}`;
-    history.replaceState({url: url, title: document.title}, document.title, url);
-    render();
+  $('#searchStoreLocation').on('click',function(e){
+    $('#storeLocationList').slideToggle();
+    if(e.target.innerHTML.length === 2){
+      storeCategory = e.target.innerHTML;
+      const url = `/store-location.html?type=${storeCategory}`;
+      history.replaceState({url: url, title: document.title}, document.title, url);
+      render();  
+    }
   })
 });
 

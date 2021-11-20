@@ -13,4 +13,29 @@
     padding: .875rem 1rem;
     border: 1px solid $gray;
     border-radius: .25rem;
+    background: $light;
+    display: flex;
+    justify-content: space-between;
+    &:hover{
+        cursor: pointer;
+    }
+}
+.option{
+    position: absolute;
+    z-index: 3;
+    top: 120%;
+    left: 0;
+    background: #fefeff;
+    width: 100%;
+    border-radius: .25rem;
+    >li{
+        text-align: center;
+        padding: .75rem;
+        &:hover{
+            padding-left: 8px;
+            border-left: 4px solid $secondary;
+            color: $secondary;
+            font-weight: bold;
+        }
+    }
 }

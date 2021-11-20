@@ -1,0 +1,15 @@
+.ui-widget-header {
+  border: 1px solid $secondary-light;
+  background: $secondary-light;
+  color: $light;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default, .ui-button, html .ui-button.ui-state-disabled:hover, html .ui-button.ui-state-disabled:active {
+  border: 1px solid $gray-light;
+  background: $gray-light;
+  color: $gray-dark;
+  &:hover{
+    background: $secondary-light;
+    color: $light;
+  }
+}

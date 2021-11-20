@@ -6,19 +6,27 @@ current: store-location
 ---
 <div class="bg-gray-light py-5">
   <h2 class="section-lg-title text-center">店舖據點</h2>
-  <div class="container d-flex justify-content-center">
-    <select name="searchStoreLocation" id="searchStoreLocation" class="select w-50">
-      <option value="尋找最近的店舖" selected disabled>尋找最近的店舖</option>
-      <option value="台北">台北</option>
-      <option value="新北">新北</option>
-      <option value="台中">台中</option>
-      <option value="台南">台南</option>
-      <option value="高雄">高雄</option>
-    </select>
-    <button type="button" class="btn btn-outline-secondary ml-3" id="searchStoreBtnLocation">搜尋</button>
+  <div class="select w-50 mx-auto position-relative" id="searchStoreLocation">
+    <p>尋找最近的店舖</p>
+    <i class="bi bi-caret-down-fill"></i>
+    <ul class="option d-none" id="storeLocationList">
+      <li>台北</li>
+      <li>新北</li>
+      <li>台中</li>
+      <li>台南</li>
+      <li>高雄</li>
+    </ul>
   </div>
 </div>
+<div id="storeModal"></div>
 <div class="container py-7">
   <div class="row" id="storeList">
+  </div>
+</div>
+<div class="alert d-none" id="bookingAlert">
+  <div class="alert-inner">
+    <i class="bi bi-emoji-smile font-4 d-block mb-1"></i>
+    <p>我們已收到您的訂位</p>  
+    <p>請至信箱收取訂位 QR Code</p>
   </div>
 </div>

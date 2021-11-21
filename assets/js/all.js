@@ -91,7 +91,7 @@ function renderStoreList(storeArr) {
   var str2 = '';
   storeArr.forEach(function (store, storeKey) {
     str += "\n    <div class=\"col-lg-4 col-md-6 col-12 mb-5\">\n      <div class=\"card\">\n        <img src=\"".concat(store.imgUrl, "\" alt=\"").concat(store.category).concat(store.title, "\u5E97\" class=\"card-img\">\n        <div class=\"card-body\">\n          <h3 class=\"card-title\">").concat(store.category).concat(store.title, "\u5E97</h3>\n          <ul>\n            <li class=\"mb-2\">\n              <i class=\"bi bi-telephone-fill\"></i>\n              <span class=\"ml-1\">").concat(store.tel, "</span>\n            </li>\n            <li class=\"mb-2\">\n              <i class=\"bi bi-clock-fill\"></i>\n              <span class=\"ml-1\">").concat(store.time[0], ":00 ~ ").concat(store.time[1], ":00</span>\n            </li>\n            <li class=\"d-flex\">\n              <i class=\"bi bi-pin-angle-fill\"></i>\n              <span class=\"ml-1\">").concat(store.address, "</span>\n            </li>\n          </ul>\n        </div>\n        <div class=\"card-footer\">\n          <button class=\"btn btn-secondary-light modal-label-btn\" id=\"modal-label-").concat(storeKey, "\" data-modal-title=\"").concat(store.title, "\">\u7ACB\u5373\u8A02\u4F4D</button>\n          <button class=\"btn btn-outline-secondary-light ml-2\">\u5916\u9001\u9EDE\u9910</button>\n        </div>\n      </div>\n    </div>\n    ");
-    str2 += "\n    <div class=\"modal-outer d-none\" id=\"modal-".concat(storeKey, "\">\n      <div class=\"modal-inner\">\n        <p class=\"modal-exit mb-3\">\n          <i class=\"bi bi-x-lg\"></i>\n        </p>\n        <h3 class=\"modal-title\">").concat(store.category).concat(store.title, "\u5E97</h3>\n        <p class=\"modal-subtitle mb-5\">").concat(store.address, "</p>\n        <div class=\"d-flex justify-content-between\">\n          <div class=\"w-50\">\n          </div>\n          <form class=\"w-50\">\n            <div class=\"mb-5\">\n              <p class=\"mb-2\">\u9810\u5B9A\u65E5\u671F\uFF1A</p>\n              <input type=\"text\" class=\"datepicker w-100\">\n            </div>\n            <div class=\"mb-5\">\n              <p class=\"mb-2\">\u9810\u5B9A\u6642\u6BB5\uFF1A</p>\n              <input type=\"text\" class=\"timepicker w-100\" name=\"time\" id=\"booking-time-").concat(storeKey, "\"/>\n            </div>\n            <div class=\"d-flex mb-5\">\n              <div>\n                <p class=\"mb-2\">\u8A02\u4F4D\u59D3\u540D\uFF1A</p>\n                <input type=\"text\"/>\n              </div>\n              <div class=\"ml-1\">\n                <p class=\"mb-2\">\u8A02\u4F4D\u4EBA\u6578\uFF1A</p>\n                <input type=\"number\"/>\n              </div>\n            </div>\n            <div class=\"mb-5\">\n              <p class=\"mb-2\">\u9023\u7D61\u4FE1\u7BB1\uFF1A</p>\n              <input type=\"text\" class=\"w-100\"/>\n            </div>\n            <button type=\"button\" class=\"btn btn-secondary-light w-100 send-rsvn\">\u78BA\u8A8D\u8A02\u4F4D</button>\n          </form>\n        </div>\n      </div>\n    </div>\n    ");
+    str2 += "\n    <div class=\"modal-outer d-none\" id=\"modal-".concat(storeKey, "\">\n      <div class=\"modal-inner\">\n        <p class=\"modal-exit mb-3\">\n          <i class=\"bi bi-x-lg\"></i>\n        </p>\n        <h3 class=\"modal-title\">").concat(store.category).concat(store.title, "\u5E97</h3>\n        <p class=\"modal-subtitle mb-5\">").concat(store.address, "</p>\n        <div class=\"d-md-flex justify-content-md-between\">\n          <div class=\"w-md-50 w-100 map mb-md-0 mb-5\" id=\"map-").concat(storeKey, "\">\n          </div>\n          <div class=\"w-md-50 w-100 ml-md-5\">\n            <div class=\"mb-5\">\n              <p class=\"mb-2\">\u9810\u5B9A\u65E5\u671F\uFF1A</p>\n              <input type=\"text\" class=\"datepicker w-100\">\n            </div>\n            <div class=\"mb-5\">\n              <p class=\"mb-2\">\u9810\u5B9A\u6642\u6BB5\uFF1A</p>\n              <input type=\"text\" class=\"timepicker w-100\" name=\"time\" id=\"booking-time-").concat(storeKey, "\"/>\n            </div>\n            <div class=\"d-md-flex mb-5\">\n              <div class=\"w-md-50 mb-md-0 mb-5\">\n                <p class=\"mb-2\">\u8A02\u4F4D\u59D3\u540D\uFF1A</p>\n                <input type=\"text\" class=\"w-100\"/>\n              </div>\n              <div class=\"w-md-50 ml-md-1\">\n                <p class=\"mb-2\">\u8A02\u4F4D\u4EBA\u6578\uFF1A</p>\n                <input type=\"number\" class=\"w-100\"/>\n              </div>\n            </div>\n            <div class=\"mb-5\">\n              <p class=\"mb-2\">\u9023\u7D61\u4FE1\u7BB1\uFF1A</p>\n              <input type=\"text\" class=\"w-100\"/>\n            </div>\n            <button type=\"button\" class=\"btn btn-secondary-light w-100 send-rsvn\">\u78BA\u8A8D\u8A02\u4F4D</button>\n          </div>\n        </div>\n      </div>\n    </div>\n    ");
   });
   $('#storeList').html(str);
   $('#storeModal').html(str2);
@@ -108,7 +108,12 @@ function storeModalShow(storeArr) {
     $("#modal-".concat(storeKey)).removeClass('d-none');
     var modalStore = storeArr.find(function (store) {
       return store.title === e.target.dataset.modalTitle;
-    });
+    }); // 顯示地圖
+
+    var lat = modalStore.latlng[0];
+    var lng = modalStore.latlng[1];
+    initMap(lat, lng, "map-".concat(storeKey)); // 顯示日期時間外掛
+
     var timePickerMin = modalStore.time[0].toString();
     var timePickerMax = modalStore.time[1].toString();
     $(function () {
@@ -137,6 +142,28 @@ function storeModalShow(storeArr) {
 
   $('.modal-exit').on('click', function () {
     $(this).parent().parent().addClass('d-none');
+  });
+} // 初始化地圖 api
+
+
+function initMap() {
+  var lat = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+  var lng = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+  var id = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : "map";
+  var storeLatlng = {
+    lat: lat,
+    lng: lng
+  };
+  var map = new google.maps.Map(document.getElementById(id), {
+    zoom: 15,
+    //放大的倍率
+    center: storeLatlng //初始化的地圖中心位置
+
+  });
+  var marker = new google.maps.Marker({
+    position: storeLatlng,
+    //marker的放置位置
+    map: map
   });
 }
 

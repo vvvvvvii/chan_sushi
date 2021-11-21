@@ -91,7 +91,7 @@ function renderStoreList(storeArr) {
   var str2 = '';
   storeArr.forEach(function (store, storeKey) {
     str += "\n    <div class=\"col-lg-4 col-md-6 col-12 mb-5\">\n      <div class=\"card\">\n        <img src=\"".concat(store.imgUrl, "\" alt=\"").concat(store.category).concat(store.title, "\u5E97\" class=\"card-img\">\n        <div class=\"card-body\">\n          <h3 class=\"card-title\">").concat(store.category).concat(store.title, "\u5E97</h3>\n          <ul>\n            <li class=\"mb-2\">\n              <i class=\"bi bi-telephone-fill\"></i>\n              <span class=\"ml-1\">").concat(store.tel, "</span>\n            </li>\n            <li class=\"mb-2\">\n              <i class=\"bi bi-clock-fill\"></i>\n              <span class=\"ml-1\">").concat(store.time[0], ":00 ~ ").concat(store.time[1], ":00</span>\n            </li>\n            <li class=\"d-flex\">\n              <i class=\"bi bi-pin-angle-fill\"></i>\n              <span class=\"ml-1\">").concat(store.address, "</span>\n            </li>\n          </ul>\n        </div>\n        <div class=\"card-footer\">\n          <button class=\"btn btn-secondary-light modal-label-btn\" id=\"modal-label-").concat(storeKey, "\" data-modal-title=\"").concat(store.title, "\">\u7ACB\u5373\u8A02\u4F4D</button>\n          <button class=\"btn btn-outline-secondary-light ml-2\">\u5916\u9001\u9EDE\u9910</button>\n        </div>\n      </div>\n    </div>\n    ");
-    str2 += "\n    <div class=\"modal-outer d-none\" id=\"modal-".concat(storeKey, "\">\n      <div class=\"modal-inner\">\n        <p class=\"modal-exit mb-3\">\n          <i class=\"bi bi-x-lg\"></i>\n        </p>\n        <h3 class=\"modal-title\">").concat(store.category).concat(store.title, "\u5E97</h3>\n        <p class=\"modal-subtitle mb-5\">").concat(store.address, "</p>\n        <div class=\"d-md-flex justify-content-md-between\">\n          <div class=\"w-md-50 w-100 map mb-md-0 mb-5\" id=\"map-").concat(storeKey, "\">\n          </div>\n          <div class=\"w-md-50 w-100 ml-md-5\">\n            <div class=\"mb-5\">\n              <p class=\"mb-2\">\u9810\u5B9A\u65E5\u671F\uFF1A</p>\n              <input type=\"text\" class=\"datepicker w-100\">\n            </div>\n            <div class=\"mb-5\">\n              <p class=\"mb-2\">\u9810\u5B9A\u6642\u6BB5\uFF1A</p>\n              <input type=\"text\" class=\"timepicker w-100\" name=\"time\" id=\"booking-time-").concat(storeKey, "\"/>\n            </div>\n            <div class=\"d-md-flex mb-5\">\n              <div class=\"w-md-50 mb-md-0 mb-5\">\n                <p class=\"mb-2\">\u8A02\u4F4D\u59D3\u540D\uFF1A</p>\n                <input type=\"text\" class=\"w-100\"/>\n              </div>\n              <div class=\"w-md-50 ml-md-1\">\n                <p class=\"mb-2\">\u8A02\u4F4D\u4EBA\u6578\uFF1A</p>\n                <input type=\"number\" class=\"w-100\"/>\n              </div>\n            </div>\n            <div class=\"mb-5\">\n              <p class=\"mb-2\">\u9023\u7D61\u4FE1\u7BB1\uFF1A</p>\n              <input type=\"text\" class=\"w-100\"/>\n            </div>\n            <button type=\"button\" class=\"btn btn-secondary-light w-100 send-rsvn\">\u78BA\u8A8D\u8A02\u4F4D</button>\n          </div>\n        </div>\n      </div>\n    </div>\n    ");
+    str2 += "\n    <div class=\"modal-outer d-none\" id=\"modal-".concat(storeKey, "\">\n      <div class=\"modal-inner\">\n        <p class=\"modal-exit mb-3\">\n          <i class=\"bi bi-x-lg\"></i>\n        </p>\n        <h3 class=\"modal-title\">").concat(store.category).concat(store.title, "\u5E97</h3>\n        <p class=\"modal-subtitle mb-5\">").concat(store.address, "</p>\n        <div class=\"d-md-flex justify-content-md-between\">\n          <div class=\"w-md-50 w-100 map mb-md-0 mb-5\" id=\"map-").concat(storeKey, "\">\n          </div>\n          <form class=\"w-md-50 w-100 ml-md-5\" id=\"bookingForm-").concat(storeKey, "\">\n            <div class=\"mb-5\">\n              <label for=\"rsvnDate-").concat(storeKey, "\" class=\"mb-2\">\u9810\u5B9A\u65E5\u671F\uFF1A</label>\n              <input id=\"rsvnDate-").concat(storeKey, "\" name=\"date\" type=\"text\" class=\"datepicker w-100\">\n            </div>\n            <div class=\"mb-5\">\n              <label for=\"rsvnTime-").concat(storeKey, "\" class=\"mb-2\">\u9810\u5B9A\u6642\u6BB5\uFF1A</label>\n              <input type=\"text\" class=\"timepicker w-100\" name=\"time\" id=\"booking-time-").concat(storeKey, "\"/>\n            </div>\n            <div class=\"d-md-flex mb-5\">\n              <div class=\"w-md-50 mb-md-0 mb-5\">\n                <label for=\"rsvnName-").concat(storeKey, "\" class=\"mb-2\">\u8A02\u4F4D\u59D3\u540D\uFF1A</label>\n                <input id=\"rsvnName-").concat(storeKey, "\" name=\"name\" type=\"text\" class=\"w-100\"/>\n              </div>\n              <div class=\"w-md-50 ml-md-1\">\n                <label for=\"rsvnNum-").concat(storeKey, "\" class=\"mb-2\">\u8A02\u4F4D\u4EBA\u6578\uFF1A</label>\n                <input id=\"rsvnNum-").concat(storeKey, "\" name=\"num\" type=\"number\" class=\"w-100\"/>\n              </div>\n            </div>\n            <div class=\"mb-5\">\n              <label for=\"rsvnEmail-").concat(storeKey, "\" class=\"mb-2\">\u9023\u7D61\u4FE1\u7BB1\uFF1A</label>\n              <input id=\"rsvnEmail-").concat(storeKey, "\" name=\"email\" type=\"email\" class=\"w-100\"/>\n            </div>\n            <button type=\"submit\" class=\"btn btn-secondary-light w-100 send-rsvn\">\u78BA\u8A8D\u8A02\u4F4D</button>\n          </form>\n        </div>\n      </div>\n    </div>\n    ");
   });
   $('#storeList').html(str);
   $('#storeModal').html(str2);
@@ -129,17 +129,39 @@ function storeModalShow(storeArr) {
         minTime: timePickerMin,
         maxTime: timePickerMax
       });
-    }); // 送出訂單關閉 modal 彈出 alert 視窗
+    }); // 店舖頁表單驗證
 
-    $('.send-rsvn').on('click', function () {
-      $("#modal-".concat(storeKey)).addClass('d-none');
-      $('#bookingAlert').fadeIn(1000).delay(1500).fadeOut(1000);
+    $("#bookingForm-".concat(storeKey)).validate({
+      rules: {
+        date: {
+          required: true
+        },
+        time: {
+          required: true
+        },
+        name: {
+          required: true
+        },
+        num: {
+          required: true
+        },
+        email: {
+          required: true,
+          email: true
+        }
+      },
+      errorPlacement: function errorPlacement(error, element) {
+        error.insertAfter(element);
+      },
+      onfocusout: function onfocusout(element) {
+        $(element).valid();
+      },
+      submitHandler: function submitHandler() {
+        $("#modal-".concat(storeKey)).addClass('d-none');
+        $('#bookingAlert').fadeIn(1000).delay(1500).fadeOut(1000);
+      }
     });
-  }); // 關閉
-  // $('.modal-outer').on('click',function(){
-  //   $(this).addClass('d-none');
-  // })
-
+  });
   $('.modal-exit').on('click', function () {
     $(this).parent().parent().addClass('d-none');
   });

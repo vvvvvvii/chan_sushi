@@ -96,7 +96,6 @@ function render(){
 function renderStoreList(storeArr){
   let str = '';
   let str2 = '';
-
   storeArr.forEach((store,storeKey) => {
     str+=`
     <div class="col-lg-4 col-md-6 col-12 mb-5">
@@ -137,31 +136,31 @@ function renderStoreList(storeArr){
         <div class="d-md-flex justify-content-md-between">
           <div class="w-md-50 w-100 map mb-md-0 mb-5" id="map-${storeKey}">
           </div>
-          <div class="w-md-50 w-100 ml-md-5">
+          <form class="w-md-50 w-100 ml-md-5" id="bookingForm-${storeKey}">
             <div class="mb-5">
-              <p class="mb-2">預定日期：</p>
-              <input type="text" class="datepicker w-100">
+              <label for="rsvnDate-${storeKey}" class="mb-2">預定日期：</label>
+              <input id="rsvnDate-${storeKey}" name="date" type="text" class="datepicker w-100">
             </div>
             <div class="mb-5">
-              <p class="mb-2">預定時段：</p>
+              <label for="rsvnTime-${storeKey}" class="mb-2">預定時段：</label>
               <input type="text" class="timepicker w-100" name="time" id="booking-time-${storeKey}"/>
             </div>
             <div class="d-md-flex mb-5">
               <div class="w-md-50 mb-md-0 mb-5">
-                <p class="mb-2">訂位姓名：</p>
-                <input type="text" class="w-100"/>
+                <label for="rsvnName-${storeKey}" class="mb-2">訂位姓名：</label>
+                <input id="rsvnName-${storeKey}" name="name" type="text" class="w-100"/>
               </div>
               <div class="w-md-50 ml-md-1">
-                <p class="mb-2">訂位人數：</p>
-                <input type="number" class="w-100"/>
+                <label for="rsvnNum-${storeKey}" class="mb-2">訂位人數：</label>
+                <input id="rsvnNum-${storeKey}" name="num" type="number" class="w-100"/>
               </div>
             </div>
             <div class="mb-5">
-              <p class="mb-2">連絡信箱：</p>
-              <input type="text" class="w-100"/>
+              <label for="rsvnEmail-${storeKey}" class="mb-2">連絡信箱：</label>
+              <input id="rsvnEmail-${storeKey}" name="email" type="email" class="w-100"/>
             </div>
-            <button type="button" class="btn btn-secondary-light w-100 send-rsvn">確認訂位</button>
-          </div>
+            <button type="submit" class="btn btn-secondary-light w-100 send-rsvn">確認訂位</button>
+          </form>
         </div>
       </div>
     </div>
@@ -201,16 +200,36 @@ function storeModalShow(storeArr){
         maxTime: timePickerMax,
       });
     });
-    // 送出訂單關閉 modal 彈出 alert 視窗
-    $('.send-rsvn').on('click',function(){
-      $(`#modal-${storeKey}`).addClass('d-none');
-      $('#bookingAlert').fadeIn(1000).delay(1500).fadeOut(1000);
-    })
+    // 店舖頁表單驗證
+    $(`#bookingForm-${storeKey}`).validate({
+      rules: {
+        date: {
+          required: true,
+        },
+        time: {
+          required: true,
+        },
+        name: {
+          required: true,
+        },
+        num: {
+          required: true,
+        },
+        email: {
+          required: true,
+          email: true,
+        }     
+      },
+      errorPlacement:function(error, element){
+        error.insertAfter(element);
+      },
+      onfocusout: function(element) { $(element).valid(); },
+      submitHandler: function() {
+        $(`#modal-${storeKey}`).addClass('d-none');
+        $('#bookingAlert').fadeIn(1000).delay(1500).fadeOut(1000);
+      }       
+    });
   })
-  // 關閉
-  // $('.modal-outer').on('click',function(){
-  //   $(this).addClass('d-none');
-  // })
   $('.modal-exit').on('click', function(){
     $(this).parent().parent().addClass('d-none');
   })

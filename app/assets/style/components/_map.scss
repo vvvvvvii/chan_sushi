@@ -1,0 +1,6 @@
+.map{
+  height: 300px;
+  @include rwd($rwd-md){
+    height: auto;
+  }
+}

@@ -5,5 +5,6 @@
 使用技術：
 * 參考 Bootstrap 架構，以 SCSS 手刻 RWD 網站
 * 以 jQuery 及 CSS animation 製作動畫效果
-* 以 Firebase 製作資料庫並串接 api  
+* 以 Firebase 製作資料庫並串接 API
+* 串接 Google Map API
 * 搭配使用六角學院提供之 Gulp 編譯、開發

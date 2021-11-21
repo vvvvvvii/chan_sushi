@@ -134,10 +134,10 @@ function renderStoreList(storeArr){
         </p>
         <h3 class="modal-title">${store.category}${store.title}店</h3>
         <p class="modal-subtitle mb-5">${store.address}</p>
-        <div class="d-flex justify-content-between">
-          <div class="w-50">
+        <div class="d-md-flex justify-content-md-between">
+          <div class="w-md-50 w-100 map mb-md-0 mb-5" id="map-${storeKey}">
           </div>
-          <form class="w-50">
+          <div class="w-md-50 w-100 ml-md-5">
             <div class="mb-5">
               <p class="mb-2">預定日期：</p>
               <input type="text" class="datepicker w-100">
@@ -146,14 +146,14 @@ function renderStoreList(storeArr){
               <p class="mb-2">預定時段：</p>
               <input type="text" class="timepicker w-100" name="time" id="booking-time-${storeKey}"/>
             </div>
-            <div class="d-flex mb-5">
-              <div>
+            <div class="d-md-flex mb-5">
+              <div class="w-md-50 mb-md-0 mb-5">
                 <p class="mb-2">訂位姓名：</p>
-                <input type="text"/>
+                <input type="text" class="w-100"/>
               </div>
-              <div class="ml-1">
+              <div class="w-md-50 ml-md-1">
                 <p class="mb-2">訂位人數：</p>
-                <input type="number"/>
+                <input type="number" class="w-100"/>
               </div>
             </div>
             <div class="mb-5">
@@ -161,7 +161,7 @@ function renderStoreList(storeArr){
               <input type="text" class="w-100"/>
             </div>
             <button type="button" class="btn btn-secondary-light w-100 send-rsvn">確認訂位</button>
-          </form>
+          </div>
         </div>
       </div>
     </div>
@@ -179,7 +179,12 @@ function storeModalShow(storeArr){
   $('.modal-label-btn').on('click', function(e){
     const storeKey = e.target.id.split('-')[2];
     $(`#modal-${storeKey}`).removeClass('d-none');
-    const modalStore = storeArr.find(store=> store.title===e.target.dataset.modalTitle);
+    const modalStore = storeArr.find(store=> store.title === e.target.dataset.modalTitle);
+    // 顯示地圖
+    const lat = modalStore.latlng[0];
+    const lng = modalStore.latlng[1];
+    initMap(lat,lng, `map-${storeKey}`);
+    // 顯示日期時間外掛
     const timePickerMin = modalStore.time[0].toString();  
     const timePickerMax = modalStore.time[1].toString();  
     $(function () {
@@ -209,6 +214,18 @@ function storeModalShow(storeArr){
   $('.modal-exit').on('click', function(){
     $(this).parent().parent().addClass('d-none');
   })
+}
+// 初始化地圖 api
+function initMap(lat=0, lng=0, id="map"){
+  let storeLatlng = { lat: lat, lng: lng };	
+  let map = new google.maps.Map(document.getElementById(id), {
+    zoom: 15,	//放大的倍率
+    center: storeLatlng	//初始化的地圖中心位置
+  });
+  let marker = new google.maps.Marker({
+    position: storeLatlng,	//marker的放置位置
+    map: map
+  });
 }
 
 $(document).ready(function () {

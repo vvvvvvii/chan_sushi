@@ -1,5 +1,7 @@
 # 將將壽司
 
+[Demo](https://vvvvvvii.github.io/chan_sushi/)
+
 期盼自己不只停留在 Bootstrap ，也能更精進手刻技術；同時也想學習 Firebase 並輸出成果。因而有了將將壽司網站的誕生。
 
 使用技術：

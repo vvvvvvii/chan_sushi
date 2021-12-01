@@ -223,7 +223,6 @@ function storeModalShow(storeArr){
       errorPlacement:function(error, element){
         error.insertAfter(element);
       },
-      onfocusout: function(element) { $(element).valid(); },
       submitHandler: function() {
         $(`#modal-${storeKey}`).addClass('d-none');
         $('#bookingAlert').fadeIn(1000).delay(1500).fadeOut(1000);

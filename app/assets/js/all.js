@@ -260,7 +260,7 @@ $(document).ready(function () {
     // 如果是產品列表頁，要秀出對應資料
     if($('#productList')){
       productCategory = $(this)[0].innerHTML;
-      const url = `/product-list.html?type=${productCategory}`;
+      const url = `./product-list.html?type=${productCategory}`;
       // 更新網址參數但不刷新整個頁面讓 nav-item active 消失
       history.replaceState({url: url, title: document.title}, document.title, url);
     }
@@ -311,7 +311,7 @@ $(document).ready(function () {
   // 首頁搜尋店舖，跳轉畫面秀出對應資料
   $('#searchStoreBtnIndex').on('click',function(){
     storeCategory = $(this).siblings()[0].value;
-    const url = `/store-location.html?type=${storeCategory}`;
+    const url = `./store-location.html?type=${storeCategory}`;
     document.location = url;
   })
   // 店舖頁搜尋店舖，秀出對應資料
@@ -319,7 +319,7 @@ $(document).ready(function () {
     $('#storeLocationList').slideToggle();
     if(e.target.innerHTML.length === 2){
       storeCategory = e.target.innerHTML;
-      const url = `/store-location.html?type=${storeCategory}`;
+      const url = `./store-location.html?type=${storeCategory}`;
       history.replaceState({url: url, title: document.title}, document.title, url);
       render();  
     }

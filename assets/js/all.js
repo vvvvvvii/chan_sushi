@@ -200,7 +200,7 @@ $(document).ready(function () {
 
     if ($('#productList')) {
       productCategory = $(this)[0].innerHTML;
-      var url = "/product-list.html?type=".concat(productCategory); // 更新網址參數但不刷新整個頁面讓 nav-item active 消失
+      var url = "./product-list.html?type=".concat(productCategory); // 更新網址參數但不刷新整個頁面讓 nav-item active 消失
 
       history.replaceState({
         url: url,
@@ -258,7 +258,7 @@ $(document).ready(function () {
 
   $('#searchStoreBtnIndex').on('click', function () {
     storeCategory = $(this).siblings()[0].value;
-    var url = "/store-location.html?type=".concat(storeCategory);
+    var url = "./store-location.html?type=".concat(storeCategory);
     document.location = url;
   }); // 店舖頁搜尋店舖，秀出對應資料
 
@@ -267,7 +267,7 @@ $(document).ready(function () {
 
     if (e.target.innerHTML.length === 2) {
       storeCategory = e.target.innerHTML;
-      var url = "/store-location.html?type=".concat(storeCategory);
+      var url = "./store-location.html?type=".concat(storeCategory);
       history.replaceState({
         url: url,
         title: document.title
